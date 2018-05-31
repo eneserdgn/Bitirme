@@ -1,0 +1,476 @@
+﻿@using CheckCar.Models;
+@model List<Release>
+@{
+    ViewBag.Title = "Release";
+    Layout = "~/Views/Shared/_LayoutHome.cshtml";
+}
+<main class="wrapper">
+
+    <div id="main">
+        <div class="row-5">
+            <div class="title">
+                <h1>Alfa Romeo Giulietta Fiyatları</h1>
+            </div>
+            <div class="login">
+                <div class="btn-group" role="group">
+                    <a rel="nofollow" class="btn btn-danger" href="/uye/uye-ol">Üye Ol</a>
+                    <a rel="nofollow" class="btn btn-danger" href="/uye/uye-girisi">Giriş Yap</a>
+                </div>
+            </div>
+        </div>
+        <div class="model-sag">
+            <ol class="breadcrumb2">
+                <li><a title="arabalar" href="/">Ana Sayfa</a></li>
+                <li><a title="Sıfır Araba Fiyatları" href="/araba-fiyatlari">Araba Fiyatları</a></li>
+                <li><a title="Alfa Romeo Fiyat Listesi" href="/alfa-romeo">Alfa Romeo</a></li>
+                <li><a title="Alfa Romeo Giulietta Fiyatları" href="/alfa-romeo/giulietta">Giulietta</a></li>
+            </ol>
+            <!-- right-side start-->
+            <div id="tab2">
+                <!-- Tab panes -->
+                <div class="tab-content">
+                    <div class="tab-pane fade in active" id="0km">
+                        <ul class="list-group list-special checked-list-box">
+                            @foreach (var release in Model)
+                            {
+                                if (release.OnSale == true)
+                                {
+                                    <li class="list-group-item">
+                                        <input type="checkbox" data-refid="209584" />
+                                        <a href="/Home/CarDetail/@release.ID">@release.MarkVersion.VersionName @release.ReleaseName</a>
+                                        <span>@release.Price<a href="/alfa-romeo/giulietta/2018/1-4-super-tct"><i class="fa fa-chevron-circle-right"></i></a></span>
+                                    </li>
+                                }
+                                else
+                                {
+                                    <li class="list-group-item">
+                                        <input type="checkbox" data-refid="209584" />
+                                        <a href="/Home/CarDetail/@release.ID">@release.MarkVersion.VersionName @release.ReleaseName</a>
+                                        <span>Satış Dışı<a href="/alfa-romeo/giulietta/2018/1-4-super-tct"><i class="fa fa-chevron-circle-right"></i></a></span>
+                                    </li>
+                                }
+                            }
+                        </ul>
+                        <div id="sorting2">
+                            <div class="list-type">
+                                <div class="btn-group">
+                                    <button type="button" class="btn btn-danger" onclick="javascript:compareNewCars(&#39;/araba-karsilastirma/&#39;,&#39;0km&#39;, &#39;1&#39;);">
+                                        <i class="fa fa-compress"></i> Seçtiklerimi Karşılaştır
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="pull-right">
+                                <ul class="pagination pull-right">
+                                    <li class="disabled">
+                                        <span><i class="fa fa-fast-backward"></i></span>
+
+                                    </li>
+                                    <li class="disabled">
+                                        <span><i class="fa fa-chevron-left"></i></span>
+
+
+                                    </li>
+                                    <li class="active">
+                                        <span>1</span>
+
+
+                                    </li>
+                                    <li>
+
+                                        <a rel="nofollow" href="/alfa-romeo/giulietta/2"><span>2</span></a>
+
+                                    </li>
+                                    <li>
+
+                                        <a rel="nofollow" href="/alfa-romeo/giulietta/3"><span>3</span></a>
+
+                                    </li>
+                                    <li>
+
+                                        <a rel="nofollow" title="Sonraki" href="/alfa-romeo/giulietta/2"><i class="fa fa-chevron-right"></i></a>
+                                    </li>
+                                    <li>
+
+                                        <a rel="nofollow" href="/alfa-romeo/giulietta/3"><i class="fa fa-fast-forward"></i></a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row right">
+            <div class="news">
+
+                <div class="top">
+                    <div class="title2"><h3>Alfa Romeo Giulietta Forum</h3></div>
+                </div>
+                <div class="detailBox">
+                    <div class="actionBox">
+
+                        <ul class="commentList">
+
+                            <li>
+
+                                <div class="commentText">
+                                    <span class="date sub-text">
+                                        <i class="fa fa-comment" style="color:#ffb300;" aria-hidden="true"></i>
+                                        26.04.2018,
+                                        <i>
+
+                                            Misafir-6078
+                                        </i>
+                                    </span>
+
+                                    <div class="sub-comm">
+
+
+                                        <div class="small">mükemmel ötesi bir tasarım <a title="Alfa Romeo Giulietta 1.6 JTD Progression" href="http://www.arabalar.com.tr/alfa-romeo/giulietta/2018/1-6-jtd-progression"><i class="fa fa-caret-square-o-right" aria-hidden="true"></i></a></div>
+
+
+                                    </div>
+
+
+                                </div>
+                            </li>
+
+                            <li>
+
+                                <div class="commentText">
+                                    <span class="date sub-text">
+                                        <i class="fa fa-comment" style="color:#ffb300;" aria-hidden="true"></i>
+                                        03.11.2017,
+                                        <i>
+                                            ali antalya
+
+                                        </i>
+                                    </span>
+
+                                    <div class="sub-comm">
+
+
+                                        <div class="small">2. eli zayıf olmasa alınacak araba aslında <a title="Alfa Romeo Giulietta 1.6 JTD Progression TCT" href="http://www.arabalar.com.tr/alfa-romeo/giulietta/2017/1-6-jtd-progression-tct"><i class="fa fa-caret-square-o-right" aria-hidden="true"></i></a></div>
+
+
+                                    </div>
+
+
+                                </div>
+                            </li>
+
+                            <li>
+
+                                <div class="commentText">
+                                    <span class="date sub-text">
+                                        <i class="fa fa-comment" style="color:#ffb300;" aria-hidden="true"></i>
+                                        09.10.2017,
+                                        <i>
+
+                                            Misafir-2810
+                                        </i>
+                                    </span>
+
+                                    <div class="sub-comm">
+
+
+                                        <div class="small">Bu fiyata Giulietta. Ama sanırım bayide bulmak çok zor. Istanbul'da olmama rağmen,  makul fiyatı ve spor araç algısı nedeniyle TCT'ye tercih ederdi... <a title="Alfa Romeo Giulietta 1.6 JTD Progression" href="http://www.arabalar.com.tr/alfa-romeo/giulietta/2017/1-6-jtd-progression"><i class="fa fa-caret-square-o-right" aria-hidden="true"></i></a></div>
+
+
+                                    </div>
+
+
+                                </div>
+                            </li>
+
+                            <li>
+
+                                <div class="commentText">
+                                    <span class="date sub-text">
+                                        <i class="fa fa-comment" style="color:#ffb300;" aria-hidden="true"></i>
+                                        15.09.2017,
+                                        <i>
+
+                                            Misafir-6437
+                                        </i>
+                                    </span>
+
+                                    <div class="sub-comm">
+
+
+                                        <div class="small">yedek parça sıkıntısı yoksa fiyatı çok ideal nerdeyse (c) sınıfı dizel araç kalmadı bu fiyatlara.. <a title="Alfa Romeo Giulietta 1.6 JTD Progression" href="http://www.arabalar.com.tr/alfa-romeo/giulietta/2017/1-6-jtd-progression"><i class="fa fa-caret-square-o-right" aria-hidden="true"></i></a></div>
+
+
+                                    </div>
+
+
+                                </div>
+                            </li>
+
+                            <li>
+
+                                <div class="commentText">
+                                    <span class="date sub-text">
+                                        <i class="fa fa-comment" style="color:#ffb300;" aria-hidden="true"></i>
+                                        28.08.2017,
+                                        <i>
+
+                                            Misafir-7926
+                                        </i>
+                                    </span>
+
+                                    <div class="sub-comm">
+
+
+                                        <div class="small">Yazılımsız hali ile bile (170 hp) sınıfının tozunu atmaya yeterli. <a title="Alfa Romeo Giulietta 1.4 Super TCT" href="http://www.arabalar.com.tr/alfa-romeo/giulietta/2017/1-4-super-tct"><i class="fa fa-caret-square-o-right" aria-hidden="true"></i></a></div>
+
+
+                                    </div>
+
+
+                                </div>
+                            </li>
+
+                            <li>
+
+                                <div class="commentText">
+                                    <span class="date sub-text">
+                                        <i class="fa fa-comment" style="color:#ffb300;" aria-hidden="true"></i>
+                                        28.08.2017,
+                                        <i>
+
+                                            Misafir-9432
+                                        </i>
+                                    </span>
+
+                                    <div class="sub-comm">
+
+
+                                        <div class="small">Aracın dışı çok güzel.. motoru, teknik alt yapısı, kullanım hissi, yol tutuşu 10 üzerinden 10 alır. Bunlar rakiplerine göre önde olduğu noktalar. e... <a title="Alfa Romeo Giulietta 1.6 JTD Progression" href="http://www.arabalar.com.tr/alfa-romeo/giulietta/2017/1-6-jtd-progression"><i class="fa fa-caret-square-o-right" aria-hidden="true"></i></a></div>
+
+
+                                    </div>
+
+
+                                </div>
+                            </li>
+
+                            <li>
+
+                                <div class="commentText">
+                                    <span class="date sub-text">
+                                        <i class="fa fa-comment" style="color:#ffb300;" aria-hidden="true"></i>
+                                        23.08.2017,
+                                        <i>
+
+                                            Misafir-3052
+                                        </i>
+                                    </span>
+
+                                    <div class="sub-comm">
+
+
+                                        <div class="small">Araç dıştan çok güzel, motor çok güzel, lakin iç kısım zayıf noktası. Fiat'ın alelade bir aracına binmişsiniz hissi veriyor, malzeme kalitesi ve iş... <a title="Alfa Romeo Giulietta 1.6 JTD Progression" href="http://www.arabalar.com.tr/alfa-romeo/giulietta/2017/1-6-jtd-progression"><i class="fa fa-caret-square-o-right" aria-hidden="true"></i></a></div>
+
+
+                                    </div>
+
+
+                                </div>
+                            </li>
+
+                            <li>
+
+                                <div class="commentText">
+                                    <span class="date sub-text">
+                                        <i class="fa fa-comment" style="color:#ffb300;" aria-hidden="true"></i>
+                                        11.08.2017,
+                                        <i>
+
+                                            Misafir-7286
+                                        </i>
+                                    </span>
+
+                                    <div class="sub-comm">
+
+
+                                        <div class="small">170 HP ye bir de yazılım yaptırın inanamayacaksınız, en az 210 HP oluyor, tabi yazılımı da ustasına yaptıracaksın Maslakta Dr.*** <a title="Alfa Romeo Giulietta 1.4 Super TCT" href="http://www.arabalar.com.tr/alfa-romeo/giulietta/2017/1-4-super-tct"><i class="fa fa-caret-square-o-right" aria-hidden="true"></i></a></div>
+
+
+                                    </div>
+
+
+                                </div>
+                            </li>
+
+                            <li>
+
+                                <div class="commentText">
+                                    <span class="date sub-text">
+                                        <i class="fa fa-comment" style="color:#ffb300;" aria-hidden="true"></i>
+                                        09.08.2017,
+                                        <i>
+
+                                            Misafir-2231
+                                        </i>
+                                    </span>
+
+                                    <div class="sub-comm">
+
+
+                                        <div class="small">arakadaşlar araç çok güzel. neden piyasada çok görmüyoruz. yedek parça olayı çok pahalı mıdır? <a title="Alfa Romeo Giulietta 1.6 JTD Progression" href="http://www.arabalar.com.tr/alfa-romeo/giulietta/2017/1-6-jtd-progression"><i class="fa fa-caret-square-o-right" aria-hidden="true"></i></a></div>
+
+
+                                    </div>
+
+
+                                </div>
+                            </li>
+
+                            <li>
+
+                                <div class="commentText">
+                                    <span class="date sub-text">
+                                        <i class="fa fa-comment" style="color:#ffb300;" aria-hidden="true"></i>
+                                        06.07.2017,
+                                        <i>
+
+                                            Misafir-9436
+                                        </i>
+                                    </span>
+
+                                    <div class="sub-comm">
+
+
+                                        <div class="small">Araç çok güzel. Farklı bir karakteri var ama 114 bin lira verilir mi hayır... Fiyat  80-90 arası konunlandırılsa belki çok daha yaygın görülür yoll... <a title="Alfa Romeo Giulietta 1.6 JTD Progression" href="http://www.arabalar.com.tr/alfa-romeo/giulietta/2017/1-6-jtd-progression"><i class="fa fa-caret-square-o-right" aria-hidden="true"></i></a></div>
+
+
+                                    </div>
+
+
+                                </div>
+                            </li>
+
+                            <li>
+
+                                <div class="commentText">
+                                    <span class="date sub-text">
+                                        <i class="fa fa-comment" style="color:#ffb300;" aria-hidden="true"></i>
+                                        05.06.2017,
+                                        <i>
+
+                                            Misafir-3407
+                                        </i>
+                                    </span>
+
+                                    <div class="sub-comm">
+
+
+                                        <div class="small">2014 model 57binde bu modeli kullanıyorum. Almayı düşünenlere lafım telefonda iPhone neyse araçtaki  karşılığı gıudir fren gaz debrıyaj ayarı direk... <a title="Alfa Romeo Giulietta 1.6 JTD Distinctive" href="http://www.arabalar.com.tr/alfa-romeo/giulietta/2015/1-6-jtd-distinctive"><i class="fa fa-caret-square-o-right" aria-hidden="true"></i></a></div>
+
+
+                                    </div>
+
+
+                                </div>
+                            </li>
+
+                            <li>
+
+                                <div class="commentText">
+                                    <span class="date sub-text">
+                                        <i class="fa fa-comment" style="color:#ffb300;" aria-hidden="true"></i>
+                                        21.05.2017,
+                                        <i>
+
+                                            Misafir-6910
+                                        </i>
+                                    </span>
+
+                                    <div class="sub-comm">
+
+
+                                        <div class="small">Yahu arkadaşlar tork ne işe yarar beygir ne işe yarar önce bunun ayrımını bilmek gerekir bazıları 320 tork nasıl en fazla 180 yapar rezalet.. gibi ... <a title="Alfa Romeo Giulietta 1.6 JTD Distinctive" href="http://www.arabalar.com.tr/alfa-romeo/giulietta/2015/1-6-jtd-distinctive"><i class="fa fa-caret-square-o-right" aria-hidden="true"></i></a></div>
+
+
+                                    </div>
+
+
+                                </div>
+                            </li>
+
+                            <li>
+
+                                <div class="commentText">
+                                    <span class="date sub-text">
+                                        <i class="fa fa-comment" style="color:#ffb300;" aria-hidden="true"></i>
+                                        13.04.2017,
+                                        <i>
+
+                                            Misafir-3037
+                                        </i>
+                                    </span>
+
+                                    <div class="sub-comm">
+
+
+                                        <div class="small">Cok araba kullandim, giuliettayi hep gorup begenirdim ama almayi hic dusunmemistim. Ama bu arabayla viraja girmek kadar guzel birsey yok. Arkadas n... <a title="Alfa Romeo Giulietta 1.4 Super TCT" href="http://www.arabalar.com.tr/alfa-romeo/giulietta/2017/1-4-super-tct"><i class="fa fa-caret-square-o-right" aria-hidden="true"></i></a></div>
+
+
+                                    </div>
+
+
+                                </div>
+                            </li>
+
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="clear"></div>
+            <div class="model-list">
+                <div class="panel panel-default">
+                    <div class="panel-heading">MODEL YILLARI</div>
+                    <div class="panel-body">
+                        <ul>
+                            <li>
+                                <a title="2018 Alfa Romeo Giulietta" href="/alfa-romeo/giulietta/2018">2018</a>
+                            </li>
+                            <li>
+                                <a title="2017 Alfa Romeo Giulietta" href="/alfa-romeo/giulietta/2017">2017</a>
+                            </li>
+                            <li>
+                                <a title="2016 Alfa Romeo Giulietta" href="/alfa-romeo/giulietta/2016">2016</a>
+                            </li>
+                            <li>
+                                <a title="2015 Alfa Romeo Giulietta" href="/alfa-romeo/giulietta/2015">2015</a>
+                            </li>
+                            <li>
+                                <a title="2014 Alfa Romeo Giulietta" href="/alfa-romeo/giulietta/2014">2014</a>
+                            </li>
+                            <li>
+                                <a title="2013 Alfa Romeo Giulietta" href="/alfa-romeo/giulietta/2013">2013</a>
+                            </li>
+                            <li>
+                                <a title="2012 Alfa Romeo Giulietta" href="/alfa-romeo/giulietta/2012">2012</a>
+                            </li>
+                            <li>
+                                <a title="2011 Alfa Romeo Giulietta" href="/alfa-romeo/giulietta/2011">2011</a>
+                            </li>
+                            <li>
+                                <a title="2010 Alfa Romeo Giulietta" href="/alfa-romeo/giulietta/2010">2010</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <!-- left-side end-->
+    </div>
+    <div class="clear"></div>
+    <div id="desc"><div class="panel panel-default"><div class="panel-body"></div></div></div>
+</main>
+

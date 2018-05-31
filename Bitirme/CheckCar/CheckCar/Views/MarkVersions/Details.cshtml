@@ -1,0 +1,43 @@
+﻿@model CheckCar.Models.MarkVersion
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>MarkVersion</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Mark.MarkName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Mark.MarkName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.VersionName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.VersionName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.VersionImage)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.VersionImage)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

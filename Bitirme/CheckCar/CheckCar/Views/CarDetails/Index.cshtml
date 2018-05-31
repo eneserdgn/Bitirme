@@ -1,0 +1,118 @@
+﻿@model IEnumerable<CheckCar.Models.CarDetail>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Release.ReleaseYear)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Security.ID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TechnicalSpecification.SilindirHacmi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Technology.ArkaParkSensoru)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CarName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CarDetailImage)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.YakitTuketimi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MalzemeKalitesi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Yoltutusu)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HızlanmaPerformansı)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SesYalıtımı)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.VitesGecisleri)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IcMekanGenisligi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DonanimTeknolojisi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.İkinciElPiyasa)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Release.ReleaseYear)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Security.ID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TechnicalSpecification.SilindirHacmi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Technology.ArkaParkSensoru)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CarName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CarDetailImage)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.YakitTuketimi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MalzemeKalitesi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Yoltutusu)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.HızlanmaPerformansı)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SesYalıtımı)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.VitesGecisleri)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IcMekanGenisligi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DonanimTeknolojisi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.İkinciElPiyasa)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+        </td>
+    </tr>
+}
+
+</table>

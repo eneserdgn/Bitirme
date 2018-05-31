@@ -1,0 +1,106 @@
+﻿@model IEnumerable<CheckCar.Models.Security>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.CarDetail.CarName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SurucuHavaYastigi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.YanPerdeHavaYastigi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LastikBasıncKontrolSistemi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EBD)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ASR)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LedGunduzFari)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.YolcuHavaYastigi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DizHavaYastigi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ABS)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ESP)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OnSisFarlari)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AlasimJantlar)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.CarDetail.CarName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SurucuHavaYastigi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.YanPerdeHavaYastigi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LastikBasıncKontrolSistemi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EBD)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ASR)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LedGunduzFari)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.YolcuHavaYastigi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DizHavaYastigi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ABS)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ESP)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.OnSisFarlari)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AlasimJantlar)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+        </td>
+    </tr>
+}
+
+</table>

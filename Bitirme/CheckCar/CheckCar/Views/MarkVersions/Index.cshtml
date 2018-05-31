@@ -1,0 +1,50 @@
+﻿@model IEnumerable<CheckCar.Models.MarkVersion>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Mark.MarkName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.VersionName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.VersionImage)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                <img src="~/Image/VersionImage/@item.VersionImage" width="70" />
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Mark.MarkName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.VersionName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.VersionImage)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.ID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+            </td>
+        </tr>
+    }
+
+</table>

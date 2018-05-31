@@ -1,0 +1,298 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="CheckCarDenemeModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="CarDetail">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CarImage" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Mark">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MarkName" Type="nvarchar" MaxLength="50" />
+          <Property Name="MarkImage" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Release">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ReleaseName" Type="nvarchar" MaxLength="50" />
+          <Property Name="ReleaseYear" Type="nvarchar" MaxLength="50" />
+          <Property Name="Price" Type="nvarchar" MaxLength="50" />
+          <Property Name="OnSale" Type="binary" MaxLength="50" />
+          <Property Name="VersionId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="Version">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="VersionName" Type="nvarchar" MaxLength="50" />
+          <Property Name="VersionImage" Type="nvarchar" MaxLength="50" />
+          <Property Name="MarkId" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_CarDetail_Release">
+          <End Role="Release" Type="Self.Release" Multiplicity="1" />
+          <End Role="CarDetail" Type="Self.CarDetail" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Release">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CarDetail">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Release_Version">
+          <End Role="Version" Type="Self.Version" Multiplicity="1" />
+          <End Role="Release" Type="Self.Release" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Version">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Release">
+              <PropertyRef Name="VersionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Version_Mark">
+          <End Role="Mark" Type="Self.Mark" Multiplicity="1" />
+          <End Role="Version" Type="Self.Version" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Mark">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Version">
+              <PropertyRef Name="MarkId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="CheckCarDenemeModelStoreContainer">
+          <EntitySet Name="CarDetail" EntityType="Self.CarDetail" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Mark" EntityType="Self.Mark" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Release" EntityType="Self.Release" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Version" EntityType="Self.Version" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_CarDetail_Release" Association="Self.FK_CarDetail_Release">
+            <End Role="Release" EntitySet="Release" />
+            <End Role="CarDetail" EntitySet="CarDetail" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Release_Version" Association="Self.FK_Release_Version">
+            <End Role="Version" EntitySet="Version" />
+            <End Role="Release" EntitySet="Release" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Version_Mark" Association="Self.FK_Version_Mark">
+            <End Role="Mark" EntitySet="Mark" />
+            <End Role="Version" EntitySet="Version" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="CheckCarDenemeModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="CarDetail">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CarImage" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Release" Relationship="Self.FK_CarDetail_Release" FromRole="CarDetail" ToRole="Release" />
+        </EntityType>
+        <EntityType Name="Mark">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MarkName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MarkImage" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Version" Relationship="Self.FK_Version_Mark" FromRole="Mark" ToRole="Version" />
+        </EntityType>
+        <EntityType Name="Release">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ReleaseName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ReleaseYear" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Price" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="OnSale" Type="Binary" MaxLength="50" FixedLength="true" />
+          <Property Name="VersionId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="CarDetail" Relationship="Self.FK_CarDetail_Release" FromRole="Release" ToRole="CarDetail" />
+          <NavigationProperty Name="Version" Relationship="Self.FK_Release_Version" FromRole="Release" ToRole="Version" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Version">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="VersionName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="VersionImage" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MarkId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Mark" Relationship="Self.FK_Version_Mark" FromRole="Version" ToRole="Mark" />
+          <NavigationProperty Name="Release" Relationship="Self.FK_Release_Version" FromRole="Version" ToRole="Release" />
+        </EntityType>
+        <Association Name="FK_CarDetail_Release">
+          <End Role="Release" Type="Self.Release" Multiplicity="1" />
+          <End Role="CarDetail" Type="Self.CarDetail" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Release">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CarDetail">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Version_Mark">
+          <End Role="Mark" Type="Self.Mark" Multiplicity="1" />
+          <End Role="Version" Type="Self.Version" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Mark">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Version">
+              <PropertyRef Name="MarkId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Release_Version">
+          <End Role="Version" Type="Self.Version" Multiplicity="1" />
+          <End Role="Release" Type="Self.Release" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Version">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Release">
+              <PropertyRef Name="VersionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="CheckCarDenemeEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="CarDetail" EntityType="Self.CarDetail" />
+          <EntitySet Name="Mark" EntityType="Self.Mark" />
+          <EntitySet Name="Release" EntityType="Self.Release" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+          <EntitySet Name="Version" EntityType="Self.Version" />
+          <AssociationSet Name="FK_CarDetail_Release" Association="Self.FK_CarDetail_Release">
+            <End Role="Release" EntitySet="Release" />
+            <End Role="CarDetail" EntitySet="CarDetail" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Version_Mark" Association="Self.FK_Version_Mark">
+            <End Role="Mark" EntitySet="Mark" />
+            <End Role="Version" EntitySet="Version" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Release_Version" Association="Self.FK_Release_Version">
+            <End Role="Version" EntitySet="Version" />
+            <End Role="Release" EntitySet="Release" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="CheckCarDenemeModelStoreContainer" CdmEntityContainer="CheckCarDenemeEntities">
+          <EntitySetMapping Name="CarDetail">
+            <EntityTypeMapping TypeName="CheckCarDenemeModel.CarDetail">
+              <MappingFragment StoreEntitySet="CarDetail">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="CarImage" ColumnName="CarImage" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Mark">
+            <EntityTypeMapping TypeName="CheckCarDenemeModel.Mark">
+              <MappingFragment StoreEntitySet="Mark">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="MarkName" ColumnName="MarkName" />
+                <ScalarProperty Name="MarkImage" ColumnName="MarkImage" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Release">
+            <EntityTypeMapping TypeName="CheckCarDenemeModel.Release">
+              <MappingFragment StoreEntitySet="Release">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="ReleaseName" ColumnName="ReleaseName" />
+                <ScalarProperty Name="ReleaseYear" ColumnName="ReleaseYear" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="OnSale" ColumnName="OnSale" />
+                <ScalarProperty Name="VersionId" ColumnName="VersionId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="CheckCarDenemeModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Version">
+            <EntityTypeMapping TypeName="CheckCarDenemeModel.Version">
+              <MappingFragment StoreEntitySet="Version">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="VersionName" ColumnName="VersionName" />
+                <ScalarProperty Name="VersionImage" ColumnName="VersionImage" />
+                <ScalarProperty Name="MarkId" ColumnName="MarkId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -1,0 +1,333 @@
+﻿@using CheckCar.Models;
+@model HomePage
+@{
+    int a = 0;
+}
+
+<main class="wrapper">
+    <div id="main">
+        <aside>
+            <!--- left start-->
+            <div class="left">
+                <div class="searchtab" data-ng-module="searchAppIndex" data-ng-controller="searchCtrl">
+                    <!--- searchtab start-->
+                    <div class="containerrr">
+                        <div id="contentt">
+                            <ul id="tabs" class="nav nav-tabs" data-tabs="tabs">
+                                <li class="active"><a href="#SIFIR" data-toggle="tab" data-ng-click="searchTypeSet(1)">SIFIR KM ARAÇ ARAMA</a></li>
+                                <li><a title="araba karşılaştırma" href="/araba-karsilastirma">ARABA KARŞILAŞTIRMA</a></li>
+                                <li><a title="sıfır araba fiyatları" href="/Home/Mark">ARABA FİYATLARI</a></li>
+                            </ul>
+                            <div id="my-tab-content" class="tab-content">
+                                <div class="tab-pane active" id="SIFIR">
+                                    <div id="detailsearch">
+
+
+
+
+
+                                        @using (Html.BeginForm("Index","Home",FormMethod.Post))
+                                        {
+                                            <div class="row-1">
+                                                <div class="col-1">
+                                                    <div class="elementtitle"><strong>FİYAT ARALIĞI</strong></div>
+                                                    <div class="cbox">
+                                                        @Html.TextBox("EnAz", "En Az",null, htmlAttributes: new { @class = "form-control" })
+                                                    </div>
+                                                    <div class="cbox">
+                                                        @Html.TextBox("EnCok","En Çok",null, htmlAttributes: new { @class = "form-control" })
+                                                    </div>
+                                                </div>
+
+                                                @*<div class="col-2">
+                                                    <div class="elementtitle"><strong>YAKIT TÜRÜ</strong></div>
+                                                    @Html.DropDownList("Departments", new List<SelectListItem>
+{
+new SelectListItem { Text = "Tümü", Value = "1", Selected=true},
+new SelectListItem { Text = "Benzin", Value = "2"},
+new SelectListItem { Text = "Dizel", Value = "3"},
+new SelectListItem { Text = "Hibrit", Value = "4"},
+new SelectListItem { Text = "LPG", Value = "5"}
+}, htmlAttributes: new { @class = "form-control" ,@id = "Yakitturu" })
+                                                </div>
+                                                <div class="col-3">
+                                                    <div class="elementtitle"><strong>VİTES TİPİ</strong></div>
+                                                    @Html.DropDownList("Departments", new List<SelectListItem>
+{
+new SelectListItem { Text = "Tümü", Value = "1", Selected=true},
+new SelectListItem { Text = "Düz Vites", Value = "2"},
+new SelectListItem { Text = "Otomatik Vites", Value = "3"}
+}, htmlAttributes: new { @class = "form-control", @id = "Vitestipi" })
+                                                </div>
+                                            </div>
+                                            <div class="row-1">
+                                                <div class="col-1">
+                                                    <div class="elementtitle"><strong>KASA TİPİ</strong></div>
+                                                    @Html.DropDownList("Departments", new List<SelectListItem>
+{
+new SelectListItem { Text = "Tümü", Value = "1", Selected=true},
+new SelectListItem { Text = "Sedan", Value = "2"},
+new SelectListItem { Text = "HatchBack", Value = "3"},
+new SelectListItem { Text = "StationWagon", Value = "4"},
+new SelectListItem { Text = "SUV-Crossover", Value = "5"},
+new SelectListItem { Text = "MPV-Minivan", Value = "6"},
+new SelectListItem { Text = "Panelvan", Value = "7"},
+new SelectListItem { Text = "Cabrio", Value = "8"},
+new SelectListItem { Text = "Coupe", Value = "9"},
+new SelectListItem { Text = "PickUp", Value = "10"}
+}, htmlAttributes: new { @class = "form-control", @id = "Kasatipi" })
+
+                                                </div>
+
+
+                                                <div class="col-2">
+                                                    <div class="elementtitle"><strong>SIRALAMA ŞEKLİ</strong></div>
+                                                    @Html.DropDownList("Departments", new List<SelectListItem>
+{
+new SelectListItem { Text = "Ucuzdan Pahalıya", Value = "1", Selected=true},
+new SelectListItem { Text = "Pahalıdan Ucuza", Value = "2"},
+new SelectListItem { Text = "Yakıt Tüketimine Göre", Value = "3"},
+new SelectListItem { Text = "Performansa Göre", Value = "4"},
+new SelectListItem { Text = "Bagaj Hacmine Göre", Value = "5"},
+new SelectListItem { Text = "Son Eklenenlere Göre", Value = "6"},
+}, htmlAttributes: new { @class = "form-control", @id = "Siralamasekli" })
+                                                </div>*@
+                                                <div class="col-40"><button type="button" data-ng-click="searchIndex()" class="btn btn-danger btn-block">ARAMA YAP</button></div>
+                                            </div>
+                                        }
+
+
+
+
+
+
+
+
+
+
+                                        <div class="row-1">
+
+                                        </div>
+                                    </div>
+                                    <!--- detail search end -->
+                                </div>
+
+                            </div>
+                        </div>
+                        <script type="text/javascript">
+                            jQuery(document).ready(function ($) {
+                                $('#tabs').tab();
+                            });
+                        </script>
+                    </div>
+                    <!-- container -->
+                </div>
+                <!--- searchtab end-->
+                <div class="clear"></div>
+
+                <div id="advert-ana">
+                    <!-- Desktop 728x90 -->
+                    <ins class="adsbygoogle"
+                         style="display:inline-block;width:728px;height:90px"
+                         data-ad-client="ca-pub-3696330473141081"
+                         data-ad-slot="5894227618"></ins>
+                    <script>
+                        (adsbygoogle = window.adsbygoogle || []).push({});
+                    </script>
+                </div>
+
+                <div class="new">
+                    <div class="top">
+                        <div class="title">YENİ <h1>ARABALAR</h1></div>
+                        <div class="arrows"></div>
+                    </div>
+                    @foreach (var item in Model.YeniEklenenler)
+                    {
+
+                        if (item.ReleaseYear == "2018" && a < 5)
+                        {
+                            a = a + 1;
+                            <div class="items">
+                                <div class="itemimage">
+                                    <a href="/mitsubishi/eclipse-cross">
+                                        <img width="180" height="135" alt="Mitsubishi Eclipse Cross" src="~/Image/VersionImage/@item.MarkVersion.VersionImage" />
+                                    </a>
+                                </div>
+                                <div class="itemtitle">
+                                    <h2><a href="/mitsubishi/eclipse-cross">@item.MarkVersion.Mark.MarkName @item.MarkVersion.VersionName</a></h2>
+                                    @item.Price TL
+
+                                </div>
+                            </div>
+
+                        }
+                    }
+
+                    <div class="clear"></div>
+                </div>
+                <br />
+                <br />
+                <!--Yeni Modeller Son-->
+                <div class="new">
+                    <div class="top">
+                        <div class="title">EN PAHALI ARABALAR</div>
+                    </div>
+                    @foreach (var item in Model.EnYuksekFiyat)
+                    {
+                        <div class="items">
+                            <div class="itemimage">
+                                <a href="/mitsubishi/eclipse-cross">
+                                    <img width="180" height="135" alt="Mitsubishi Eclipse Cross" src="~/Image/VersionImage/@item.MarkVersion.VersionImage" />
+                                </a>
+                            </div>
+                            <div class="itemtitle">
+                                <h2><a href="/mitsubishi/eclipse-cross">@item.MarkVersion.Mark.MarkName @item.MarkVersion.VersionName</a></h2>
+                                @item.Price TL
+
+                            </div>
+                        </div>
+
+
+                    }
+
+
+
+                </div>
+                <div class="clear"></div>
+                <div id="advert-3">
+                    <!-- Desktop 728x90 -->
+                    <ins class="adsbygoogle"
+                         style="display:inline-block;width:728px;height:90px"
+                         data-ad-client="ca-pub-3696330473141081"
+                         data-ad-slot="5894227618"></ins>
+                    <script>
+                        (adsbygoogle = window.adsbygoogle || []).push({});
+                    </script>
+                </div>
+
+                <!--Son Eklenen İlanlar Son-->
+
+            </div>
+        </aside>
+        <!--- left end -->
+
+        <aside>
+            <!--- right start-->
+            <div class="right">
+                <div class="addfree">
+                    <div class="login">
+                        <div class="btn-group" role="group">
+                            <a rel="nofollow" class="btn btn-danger" href="/uye/uye-ol">Üye Ol</a>
+                            <a rel="nofollow" class="btn btn-danger" href="/uye/uye-girisi">Giriş Yap</a>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="clear"></div>
+
+                <div class="brands">
+                    <div class="top">
+                        <div class="title">SIFIR FİYAT LİSTELERİ</div>
+                        <div class="arrows"><span class="label label-danger"><a title="Sıfır Araba Fiyatları" href="/Home/Mark">Tüm Markalar</a></span></div>
+                    </div>
+                    <nav>
+                        <ul>
+                            @foreach (var item in Model.Marka)
+                            {
+
+                                a = a + 1;
+                                if (a < 20)
+                                {
+                                    <li><a title="Alfa Romeo Fiyat Listesi" href="/Home/MarkVersion/@item.ID">@item.MarkName</a></li>
+                                }
+
+                            }
+                        </ul>
+                    </nav>
+                    <nav>
+                        <ul>
+                            @{ a = 0;}
+                            @foreach (var item in Model.Marka)
+                            {
+                                a = a + 1;
+                                if (a > 19 && a < 38)
+                                {
+                                    <li><a title="Alfa Romeo Fiyat Listesi" href="/Home/MarkVersion/@item.ID">@item.MarkName</a></li>
+                                }
+
+                            }
+                        </ul>
+                    </nav>
+                    <nav>
+                        <ul>
+                            @{ a = 0;}
+                            @foreach (var item in Model.Marka)
+                            {
+                                a = a + 1;
+                                if (a > 37 && a < 57)
+                                {
+                                    <li><a title="Alfa Romeo Fiyat Listesi" href="/Home/MarkVersion/@item.ID">@item.MarkName</a></li>
+                                }
+
+                            }
+                        </ul>
+                    </nav>
+
+                </div>
+                <div class="clear"></div>
+                <div class="news">
+                    <div class="top">
+                        <div class="title">HABERLER</div>
+                        <div class="arrows"><span class="label label-danger"><a title="Araba Haberleri" href="/Home/News">Tüm Haberler</a></span></div>
+                    </div>
+                    @foreach (var item in Model.News)
+                    {
+                        <div class="newsitem">
+                            <div class="newsimage"><a href="/tasarim-efsanesi-giorgetto-giugiaro"><img width="160" height="87" alt="Tasarım Efsanesi: Giorgetto Giugiaro" src="/static-res/image/haber/160x87/15269850357791.jpg" /></a></div>
+                            <div class="newscontent">
+                                <article>
+                                    <h5><a href="/Home/NewsDetail/@item.ID">@item.NewsBaslik</a></h5>
+                                </article>
+                            </div>
+                        </div>
+                    }
+
+
+                </div><!-- news end -->
+                <p></p>
+
+            </div>
+        </aside>
+    </div>
+    <!--- right end-->
+    <div class="clear"></div>
+    <div id="desc">
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <p>
+                    <strong>Arabalar</strong> internet sitesi Arabalar.gen.tr adı ile Dünyanın ilk, Türkiyenin tek sıfır araba portalı olarak 2006 yılında kuruldu. Kurulduğu tarihten bu yana Türkiye’nin en çok ziyaret edilen <b>sıfır araba</b> portalıdır. <strong>Arabalar.com.tr</strong> sitesinde en güncel sıfır araba fiyatları, araba karşılaştırmaları, tüm araba markaları ve modellerine ait teknik özellikler, donanımları, fiyat geçmişleri, resimleri, kullanıcı yorumları, puanları, çarpışma testleri, emisyon çizelgeleri, araba haberleri, araba kampanyaları ve araç tavsiyeleri yer almaktadır.
+                    <strong>Sıfır araba fiyatları</strong> ve değişimlerini fiyat grafikleri tablosundan takip edilebilirsiniz.
+                    Tüm araba modellerine ait teknik özellikler, güvenlik, teknoloji ve konfor donanımlarını aracın donanım tablosundan takip edilebilirsiniz. Ayrıca çarpışma test sonuç tablosu ve emisyon sınıfı tablosuna da ulaşabilirsiniz.
+                </p>
+                <p>
+                    Tüm araba modellerine ait kullanıcı yorumlarını okuyabilir, yorum ekleyebilir, böylece bir araba hakkında daha fazla bilgi alışverişinde bulunabilirsiniz. Dilerseniz yapılan yorumları beğenebilir veya bir yoruma cevap verebilirsiniz.
+                    Tüm <a href="/">araba modelleri</a> kullanıcı puanlamasına açık olup, buradan aracın yakıt tüketimi, kalitesi, yol tutuşu, performansı, yalıtımı, vites geçişleri, genişliği, teknolojisi ve 2. El piyasası ile ilgili kullanıcı puanlarına ulaşabilirsiniz.
+                    Araba karşılaştırma sistemi ile dilediğiniz model ve yıla ait arabaları karşılaştırabilirsiniz. Teknik ve donanım özelliklerini detaylı bir şekilde görüntüleyebilirsiniz.
+                </p>
+                <p>
+                    Arabalar.com.tr incelediğiniz araca en yakın özellikte ve fiyattaki diğer seçenekleri de sayfalarında sizlere sunmaktadır. Böylece satın almak istediğiniz araba modeline en yakın alternatiflere de kolayca ulaşabilirsiniz.
+                    Son çıkan yeni araba modellerine ulaşabilir, bunlara ait güncel fiyat ve teknik bilgilerine bakabilirsiniz. İndirime giren arabaları aylık olarak görebilir ve fiyat değişimlerini takip edebilirsiniz. Böylece gerçek bir indirim olup olmadığını geçmiş fiyat listesine bakarak karar verebilirsiniz.
+                    <strong>Araba kampanyaları</strong> sayfası ile en güncel aya ait tüm marka kampanyalarını toplu olarak görebilir, markaların kredilendirme ve indirim kampanyaları hakkında bilgi alabilir ve tüm kampanyaları kıyaslayabilirsiniz.
+                    Ucuz Arabalar sayfasında yer alan modeller ile Türkiye’de satışa sunulan en ucuz arabaları listeleyebilirsiniz. En az yakan arabalar sayfası ile de satışta bulunan tüm modeller içinde en az yakıt tüketimine sahip modelleri listeleyebilirsiniz.
+                </p>
+                <p>
+                    Araba Haberleri sayfamızdan en güncel otomotiv piyasası haberlerini okuyabilir, gelişmeler ile ilgili son bilgileri alabilirsiniz.
+                    Arabalar.com.tr sitemize üye olarak bir tercih listesi oluşturabilirsiniz. Tercih listenizde yer alan arabaları kıyaslayabilir, satıcılarından teklif alabilir, mesajlaşarak pazarlık edebilirsiniz. Yaptığınız aramaları kaydedebilir, ilan vererek 2. El aracınızı satışa çıkarabilirsiniz.
+                    Alfa Romeo, Audi, BMW, Chevrolet, Citroen, Dacia, Fiat, Ford, Honda, Hyundai, Jeep, Kia, Land Rover, Mazda, Mercedes, Mini, Mitsubishi, Nissan, Opel, Peugeot, Renault, Seat, Skoda, SsangYong, Subaru, Suzuki, Toyota, Volkswagen, Volvo başta olmak üzere tüm araba markaları, en güncel <strong>fiyat</strong> ve tüm detaylı bilgileri ile Arabalar.com.tr’de yer almaya devam edecek.
+                </p>
+
+            </div>
+        </div>
+    </div>
+</main>
+

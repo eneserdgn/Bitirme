@@ -1,0 +1,171 @@
+﻿@model CheckCar.Models.TechnicalSpecification
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>TechnicalSpecification</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.CarDetail.CarName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CarDetail.CarName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SilindirHacmi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SilindirHacmi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BeygirGucu)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BeygirGucu)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.YakitTuru)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.YakitTuru)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SehirIciOrtalamaTuketim)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SehirIciOrtalamaTuketim)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SehirDisiOrtalamaTuketim)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SehirDisiOrtalamaTuketim)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.KarmaYakitTuketimi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.KarmaYakitTuketimi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.VitesTipi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.VitesTipi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MaksimimTork)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MaksimimTork)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LastikOlculeri)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LastikOlculeri)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SifirdanTuzeHizlanma)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SifirdanTuzeHizlanma)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MaksimumHiz)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MaksimumHiz)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Uzunluk)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Uzunluk)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Genişlik)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Genişlik)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Tukseklik)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Tukseklik)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BagajHacmi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BagajHacmi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BosAgırlik)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BosAgırlik)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.YakitDeposu)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.YakitDeposu)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.YıllıkVergisi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.YıllıkVergisi)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

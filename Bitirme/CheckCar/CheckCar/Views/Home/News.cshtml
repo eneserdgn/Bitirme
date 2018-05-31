@@ -1,0 +1,127 @@
+﻿@using CheckCar.Models
+@model List<News>
+@{
+    ViewBag.Title = "News";
+    Layout = "~/Views/Shared/_LayoutHome.cshtml";
+}
+<main class="wrapper">
+
+    <div id="main">
+
+        <div class="row-5">
+            <div class="title"><h1>Araba Haberleri</h1></div>
+
+            <div class="login">
+                <div class="btn-group" role="group">
+                    <a rel="nofollow" class="btn btn-danger" href="/uye/uye-ol">Üye Ol</a>
+                    <a rel="nofollow" class="btn btn-danger" href="/uye/uye-girisi">Giriş Yap</a>
+                </div>
+            </div>
+
+
+        </div>
+
+        <div class="advert">
+            <!-- Desktop 970x250 -->
+            <ins class="adsbygoogle"
+                 style="display:inline-block;width:970px;height:250px"
+                 data-ad-client="ca-pub-3696330473141081"
+                 data-ad-slot="6190220011"></ins>
+            <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
+        <div class="clear"></div>
+
+        <div class="container" id="tourpackages-carousel">
+
+            <div class="row">
+                @foreach (var item in Model)
+                {
+
+                    <div class="col-xs-3 col-sm-3 col-md-3">
+                        <div class="thumbnail">
+                            <a href="/Home/NewsDetail/@item.ID"><img alt="" width="250" height="135" src="/static-res/image/haber/250x135/15271913729281.jpg" /></a>
+                            <div class="caption" id="container_id">
+                                <h2><a href="/Home/NewsDetail/@item.ID">@item.NewsBaslik</a></h2>
+                                <p>
+                                    <label style="font-size: 14px; position:absolute; visibility: hidden;" id="hiddenDiv_4818"></label>
+                                    <span id="4818"> </span>                                 
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                }
+
+            </div><!-- End row -->
+            <div class="advert">
+                <!-- Desktop Header -->
+                <ins class="adsbygoogle"
+                     style="display:inline-block;width:970px;height:90px"
+                     data-ad-client="ca-pub-3696330473141081"
+                     data-ad-slot="6467274383"></ins>
+                <script>
+                    (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
+            </div>
+
+            <div class="clearfix"></div>
+            <div>
+                <div class="clearfix"></div>
+                <div>
+                    <ul class="pagination pull-right">
+                        <li class="disabled">
+                            <span><i class="fa fa-fast-backward"></i></span>
+
+                        </li>
+                        <li class="disabled">
+                            <span><i class="fa fa-chevron-left"></i></span>
+
+
+                        </li>
+                        <li class="active">
+                            <span>1</span>
+
+
+                        </li>
+                        <li>
+
+                            <a href="/haberler/2"><span>2</span></a>
+
+                        </li>
+                        <li>
+
+                            <a href="/haberler/3"><span>3</span></a>
+
+                        </li>
+                        <li>
+
+                            <a href="/haberler/4"><span>4</span></a>
+
+                        </li>
+                        <li>
+
+                            <a href="/haberler/5"><span>5</span></a>
+
+                        </li>
+                        <li>
+
+                            <a title="Sonraki" href="/haberler/2"><i class="fa fa-chevron-right"></i></a>
+                        </li>
+                        <li>
+
+                            <a href="/haberler/241"><i class="fa fa-fast-forward"></i></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+
+
+        </div><!-- End container -->
+
+    </div>
+
+</main>
+
+

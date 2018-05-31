@@ -1,0 +1,118 @@
+﻿@model IEnumerable<CheckCar.Models.Technology>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.CarDetail.CarName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ArkaParkSensoru)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.GeriGorusKamerasi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HizSabitlemeSistemi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.YağmurSensoru)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.StartStopSistemi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BluetoothBaglantisi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OtomatikKatlananYanAynalar)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ElektronikParkFreni)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.YolBilgisayari)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.YokusKalkisDestekSistemi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FarSensoru)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.USBGirisi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NavigasyonSistemi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.XenonOnFarlar)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.CarDetail.CarName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ArkaParkSensoru)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.GeriGorusKamerasi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.HizSabitlemeSistemi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.YağmurSensoru)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.StartStopSistemi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BluetoothBaglantisi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.OtomatikKatlananYanAynalar)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ElektronikParkFreni)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.YolBilgisayari)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.YokusKalkisDestekSistemi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FarSensoru)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.USBGirisi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NavigasyonSistemi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.XenonOnFarlar)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,145 @@
+﻿@model CheckCar.Models.CarDetail
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>CarDetail</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Release.ReleaseYear)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Release.ReleaseYear)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Security.ID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Security.ID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TechnicalSpecification.SilindirHacmi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TechnicalSpecification.SilindirHacmi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Technology.ArkaParkSensoru)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Technology.ArkaParkSensoru)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CarName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CarName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CarDetailImage)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CarDetailImage)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.YakitTuketimi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.YakitTuketimi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MalzemeKalitesi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MalzemeKalitesi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Yoltutusu)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Yoltutusu)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HızlanmaPerformansı)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HızlanmaPerformansı)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SesYalıtımı)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SesYalıtımı)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.VitesGecisleri)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.VitesGecisleri)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IcMekanGenisligi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IcMekanGenisligi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DonanimTeknolojisi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DonanimTeknolojisi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.İkinciElPiyasa)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.İkinciElPiyasa)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

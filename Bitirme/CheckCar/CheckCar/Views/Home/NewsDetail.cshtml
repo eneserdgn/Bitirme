@@ -1,0 +1,112 @@
+﻿@using CheckCar.Models
+@model News
+@{
+    ViewBag.Title = "NewsDetail";
+    Layout = "~/Views/Shared/_LayoutHome.cshtml";
+}
+<main class="wrapper">
+    <div id="main">
+
+        <div class="row-5">
+            <div class="title"><h1>@Model.NewsBaslik</h1></div>
+            <div class="login">
+                <div class="btn-group" role="group">
+                    <a rel="nofollow" class="btn btn-danger" href="/uye/uye-ol">Üye Ol</a>
+                    <a rel="nofollow" class="btn btn-danger" href="/uye/uye-girisi">Giriş Yap</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="clear"></div>
+
+        <div class="left">
+            <div class="newsitem">
+                <div class="newsimagebig"><img width="750" height="406" alt="Tasarım Efsanesi: Giorgetto Giugiaro" src="/static-res/image/haber/750x406/15269850357791.jpg" /></div>
+                <div class="newsdetail">
+                    <div class="advert">
+                        <!-- Desktop 300x250 -->
+                        <ins class="adsbygoogle"
+                             style="display:inline-block;width:300px;height:250px"
+                             data-ad-client="ca-pub-3696330473141081"
+                             data-ad-slot="9509629872"></ins>
+                        <script>
+                            (adsbygoogle = window.adsbygoogle || []).push({});
+                        </script>
+                    </div>
+                    <div><p>@Model.NewsIcerik<br><br></p><div class="embed-responsive embed-responsive-16by9"><iframe frameborder="0" src="//www.youtube.com/embed/n4UT_DeYF0Y?rel=0&amp;amp;showinfo=0" width="640" height="360" class="note-video-clip embed-responsive-item"></iframe></div><p><br></p></div>
+                    <p class="small text-right"><i class="fa fa-calendar"></i> @Model.Date | <i class="fa fa-share-square"></i> <a href="#paylas" data-toggle="modal">Bu Haberi Paylaş</a></p>
+                    <div class="clear"></div>
+                    <div id="advert-3">
+                        <!-- Desktop 728x90 -->
+                        <ins class="adsbygoogle"
+                             style="display:inline-block;width:728px;height:90px"
+                             data-ad-client="ca-pub-3696330473141081"
+                             data-ad-slot="5894227618"></ins>
+                        <script>
+                            (adsbygoogle = window.adsbygoogle || []).push({});
+                        </script>
+                    </div>
+                </div>
+            </div>
+            <div class="clear"></div>
+        </div>
+        <div class="right">
+         
+            <div class="clear"></div>
+
+            <div class="news">
+                <div class="top">
+                    <div class="title">SON HABERLER</div>
+                    <div class="arrows"><span class="label label-danger"><a title="Araba Haberleri" href="/haberler">Tüm Haberler</a></span></div>
+                </div>
+
+                <div class="newsitem">
+                    <div class="newsimage"><a href="/yeni-citroen-c5-aircross"><img alt="" width="160" height="87" src="/static-res/image/haber/160x87/15271913729281.jpg" /></a></div>
+                    <div class="newscontent">
+                        <article>
+                            <h5><a href="/yeni-citroen-c5-aircross">Yeni Citroen C5 Aircross</a></h5>
+                        </article>
+                    </div>
+                </div>
+
+                <div class="newsitem">
+                    <div class="newsimage"><a href="/tasarim-efsanesi-giorgetto-giugiaro"><img alt="" width="160" height="87" src="/static-res/image/haber/160x87/15269850357791.jpg" /></a></div>
+                    <div class="newscontent">
+                        <article>
+                            <h5><a href="/tasarim-efsanesi-giorgetto-giugiaro">Tasarım Efsanesi: Giorgetto Giugiaro</a></h5>
+                        </article>
+                    </div>
+                </div>
+
+                <div class="newsitem">
+                    <div class="newsimage"><a href="/kiralama-sektoru-rekor-pesinde"><img alt="" width="160" height="87" src="/static-res/image/haber/160x87/15269732229651.jpg" /></a></div>
+                    <div class="newscontent">
+                        <article>
+                            <h5><a href="/kiralama-sektoru-rekor-pesinde">Kiralama Sektörü Rekor Peşinde</a></h5>
+                        </article>
+                    </div>
+                </div>
+
+                <div class="newsitem">
+                    <div class="newsimage"><a href="/yakin-gelecekte-gorecegimiz-teknolojiler"><img alt="" width="160" height="87" src="/static-res/image/haber/160x87/15268904940041.jpg" /></a></div>
+                    <div class="newscontent">
+                        <article>
+                            <h5><a href="/yakin-gelecekte-gorecegimiz-teknolojiler">Yakın Gelecekte Göreceğimiz Teknolojiler</a></h5>
+                        </article>
+                    </div>
+                </div>
+
+                <div class="newsitem">
+                    <div class="newsimage"><a href="/vw-emniyet-kemeri-icin-cagri-yapti"><img alt="" width="160" height="87" src="/static-res/image/haber/160x87/15266329920371.jpg" /></a></div>
+                    <div class="newscontent">
+                        <article>
+                            <h5><a href="/vw-emniyet-kemeri-icin-cagri-yapti">VW Emniyet Kemeri İçin Çağrı Yaptı</a></h5>
+                        </article>
+                    </div>
+                </div>
+            </div><!-- news end -->
+        </div>
+        <div class="clear"></div>
+
+    </div>
+</main>

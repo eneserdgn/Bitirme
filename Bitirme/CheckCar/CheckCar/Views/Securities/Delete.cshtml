@@ -1,0 +1,129 @@
+﻿@model CheckCar.Models.Security
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Security</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.CarDetail.CarName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CarDetail.CarName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SurucuHavaYastigi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SurucuHavaYastigi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.YanPerdeHavaYastigi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.YanPerdeHavaYastigi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LastikBasıncKontrolSistemi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LastikBasıncKontrolSistemi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EBD)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EBD)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ASR)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ASR)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LedGunduzFari)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LedGunduzFari)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.YolcuHavaYastigi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.YolcuHavaYastigi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DizHavaYastigi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DizHavaYastigi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ABS)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ABS)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ESP)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ESP)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OnSisFarlari)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OnSisFarlari)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AlasimJantlar)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AlasimJantlar)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

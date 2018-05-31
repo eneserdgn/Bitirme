@@ -1,0 +1,123 @@
+﻿@using CheckCar.Models;
+@model List<MarkVersion>
+@{
+    ViewBag.Title = "MarkVersion";
+    Layout = "~/Views/Shared/_LayoutHome.cshtml";
+    int a = 0;
+}
+<main class="wrapper">
+    <div id="main">
+        <div class="row-5">
+            <div class="title"><h1> Fiyat Listesi</h1></div>
+
+            <div class="login">
+                <div class="btn-group" role="group">
+                    <a rel="nofollow" class="btn btn-danger" href="/uye/uye-ol">Üye Ol</a>
+                    <a rel="nofollow" class="btn btn-danger" href="/uye/uye-girisi">Giriş Yap</a>
+                </div>
+            </div>
+        </div>
+        <ol class="breadcrumb2">
+            <li><a title="arabalar" href="/">Ana Sayfa</a></li>
+            <li><a title="Sıfır Araba Fiyatları" href="/araba-fiyatlari">Araba Fiyatları</a></li>
+            <li><a title="Alfa Romeo Fiyat Listesi" href="/alfa-romeo"><span>Alfa Romeo</span></a></li>
+        </ol>
+        <div class="marka-list">
+            @foreach (var item in Model)
+            {
+                if (a == 0)
+                {
+                    <div class="left-side-logo"><img width="140" height="140" src="~/Image/MarkImage/@item.Mark.MarkImage" /></div>
+                    a = 1;
+                }
+
+            }
+            <div class="list-group">
+                @foreach (var version in Model)
+                {
+                    <a class="list-group-item" href="/Home/Release/@version.ID">@version.VersionName</a>
+                }
+            </div>
+        </div><!-- left-side end-->
+
+        <div class="right-side2">
+            <!-- right-side start-->
+            <div id="models">
+                @foreach (var version in Model)
+                {
+                    <div class="model">
+                        <div class="modelthumb"><a href="/Home/Release/@version.ID"><img alt="Giulietta" src="~/Image/VersionImage/@version.VersionImage" /></a></div>
+                        <div class="modelname"><h2><a title="Alfa Romeo Giulietta Fiyatları" href="/Home/Release/@version.ID">@version.VersionName</a></h2></div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+    <div class="clear"></div>
+
+    <div id="marka-haber">
+        <div class="row">
+
+            <div class="col-xs-3 col-md-3">
+                <div class="thumbnail">
+                    <a href="/en-hizli-alfa-satisa-sunuldu"><img alt="" width="250" height="135" src="/static-res/image/haber/250x135/14866374135291.jpg" /></a>
+                    <div class="caption" id="container_id">
+                        <h3><a href="/en-hizli-alfa-satisa-sunuldu">En Hızlı Alfa Satışa Sunuldu</a></h3>
+                        <p>
+                            <label style="font-size: 14px; position:absolute; visibility: hidden;" id="hiddenDiv_4702"></label>
+                            <span id="4702"> </span>
+                            Türkiye'de satışta bulunan en hızlı otomobil olma özelliğine sahip yeni Alfa Romeo Giulia modeli vitrinlerdeki yerini aldı....
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xs-3 col-md-3">
+                <div class="thumbnail">
+                    <a href="/yeni-alfa-romeo-giulia"><img alt="" width="250" height="135" src="/static-res/image/haber/250x135/14657454317441.jpg" /></a>
+                    <div class="caption" id="container_id">
+                        <h3><a href="/yeni-alfa-romeo-giulia">Yeni Alfa Romeo Giulia</a></h3>
+                        <p>
+                            <label style="font-size: 14px; position:absolute; visibility: hidden;" id="hiddenDiv_4627"></label>
+                            <span id="4627"> </span>
+                            Alfa Romeo 30 yıl ara verdiği spor segmentine Yeni Giulia modeli ile geri dönmeye hazırlanıyor...
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xs-3 col-md-3">
+                <div class="thumbnail">
+                    <a href="/yeni-alfa-romeo-stelvio"><img alt="" width="250" height="135" src="/static-res/image/haber/250x135/14558358853951.jpg" /></a>
+                    <div class="caption" id="container_id">
+                        <h3><a href="/yeni-alfa-romeo-stelvio">Yeni Alfa Romeo Stelvio</a></h3>
+                        <p>
+                            <label style="font-size: 14px; position:absolute; visibility: hidden;" id="hiddenDiv_4557"></label>
+                            <span id="4557"> </span>
+                            Stelvio olarak adlandırılması beklenen markanı ilk SUV modelinin önümüzdeki yıl bayilerdeki yerini alması bekleniyor...
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xs-3 col-md-3">
+                <div class="thumbnail">
+                    <a href="/alfa-dan-suv-atagi"><img alt="" width="250" height="135" src="/static-res/image/haber/250x135/14385869486311.jpg" /></a>
+                    <div class="caption" id="container_id">
+                        <h3><a href="/alfa-dan-suv-atagi">Alfa&#39;dan SUV Atağı</a></h3>
+                        <p>
+                            <label style="font-size: 14px; position:absolute; visibility: hidden;" id="hiddenDiv_4426"></label>
+                            <span id="4426"> </span>
+                            Alfa Romeo Giulia sedan üzerine konumlandırılacak yeni Alfa Romeo SUV, Eylül ya da Ekim 2016 gibi Avrupa’da satışa sunulacak...
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div id="desc">
+        <div class="panel panel-default"><div class="panel-body">1910 yılında İtalya'da ALFA (Anonima Lombarda Fabbrica Automobili) adıyla kuruldu. İlk spor otomobilini 1913 yılında üretti. 1915 yılında sanayici Nicola Romeo tarafından satın alınarak ismi Alfa Romeo olarak değiştirildi. Birinci Dünya Savaşı ardından spor otomobiller üretmeye devam etti ve birçok yarışmada kazandığı başarılı sonuçlar sayesinde adını duyurmaya başladı. 1951 yılında şimdiki adıyla Formula 1 olarak bilinen yarışmanın ilk dünya şampiyonu oldu. Özellikle 60'lı yıllar ile aile otomobili üretimine de ağırlık verdi ve 1979 yılında İtalya'nın ilk turbo dizel motorunu üretti. 1986 yılında tamamiyle Fiat bünyesine geçen Alfa Romeo'nun, 156 modeli 1998'de Avrupa'da yılın otomobili seçildi. Halen ülkemizde TOFAŞ çatısı altında faaliyet gösteren Alfa Romeo, ülke çapında 14 satış ve 18 adet yetkili servis hizmet noktası bulunmaktadır. Alfa Romeo Fiyat Listesi sayfamızdan Giulietta, Giulia, 4C, 156, MiTo, 159, 145, 146, 147, 155, 164, 166, Brera, GT, GTV, Spider, 33 ve 75 modelleri fiyatları ve teknik özelliklerine ulaşabilirsiniz.</div></div>
+    </div>
+</main>

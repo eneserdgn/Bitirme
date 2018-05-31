@@ -1,0 +1,142 @@
+﻿@model IEnumerable<CheckCar.Models.TechnicalSpecification>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.CarDetail.CarName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SilindirHacmi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BeygirGucu)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.YakitTuru)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SehirIciOrtalamaTuketim)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SehirDisiOrtalamaTuketim)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.KarmaYakitTuketimi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.VitesTipi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MaksimimTork)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LastikOlculeri)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SifirdanTuzeHizlanma)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MaksimumHiz)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Uzunluk)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Genişlik)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Tukseklik)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BagajHacmi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BosAgırlik)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.YakitDeposu)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.YıllıkVergisi)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.CarDetail.CarName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SilindirHacmi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BeygirGucu)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.YakitTuru)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SehirIciOrtalamaTuketim)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SehirDisiOrtalamaTuketim)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.KarmaYakitTuketimi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.VitesTipi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MaksimimTork)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LastikOlculeri)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SifirdanTuzeHizlanma)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MaksimumHiz)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Uzunluk)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Genişlik)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Tukseklik)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BagajHacmi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BosAgırlik)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.YakitDeposu)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.YıllıkVergisi)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+        </td>
+    </tr>
+}
+
+</table>

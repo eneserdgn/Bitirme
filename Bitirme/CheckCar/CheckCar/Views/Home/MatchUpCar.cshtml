@@ -1,0 +1,860 @@
+﻿
+@{
+    ViewBag.Title = "MatchUpCar";
+    Layout = "~/Views/Shared/_LayoutHome.cshtml";
+}
+
+<main class="wrapper">
+
+    <div id="main" ng-module="searchAppAramaSonucu" ng-controller="searchCtrl" ng-init="init()">
+
+        <div class="row-5">
+            <div class="title"><h1>Arama Sonuçları</h1></div>
+
+            <div class="login">
+                <div class="btn-group" role="group">
+                    <a rel="nofollow" class="btn btn-danger" href="/uye/uye-ol">Üye Ol</a>
+                    <a rel="nofollow" class="btn btn-danger" href="/uye/uye-girisi">Giriş Yap</a>
+                </div>
+            </div>
+
+
+        </div>
+        <div class="left-side">
+            <div class="text-center">
+                <!-- Desktop 250x250 -->
+                <ins class="adsbygoogle"
+                     style="display:inline-block;width:250px;height:250px"
+                     data-ad-client="ca-pub-3696330473141081"
+                     data-ad-slot="6573363397"></ins>
+                <script>
+                    (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <form class="form-horizontal" action="#" method="get">
+
+                        <div class="data">
+                            <div class="title">Fiyat Aralığı</div>
+                            <div class="content">
+
+                                <div class="form-group">
+                                    <div class="col-xs-6"><input name="dinheiro" type="text" class="form-control" data-ng-model="search.priceMin" placeholder="En Az" /></div>
+                                    <div class="col-xs-6"><input name="dinheiro" type="text" class="form-control" data-ng-model="search.priceMax" placeholder="En Çok" /></div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="data">
+                            <div class="title">Araç Türü</div>
+                            <div class="content">
+                                <div class="btn-group btn-block" data-toggle="buttons">
+                                    <label ng-click="search.carType=0" ng-class="search.carType == 0 ? 'btn btn-default active': 'btn btn-default'">
+                                        <input type="radio" name="options" id="option1" autocomplete="off" /> Tümü
+                                    </label>
+                                    <label ng-click="search.carType=1" ng-class="search.carType == 1 ? 'btn btn-default active': 'btn btn-default'">
+                                        <input type="radio" name="options" id="option2" autocomplete="off" /> Binek
+                                    </label>
+                                    <label ng-click="search.carType=2" ng-class="search.carType == 2 ? 'btn btn-default active': 'btn btn-default'">
+                                        <input type="radio" name="options" id="option3" autocomplete="off" /> Ticari
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="data">
+                            <div class="title">Motor Hacmi</div>
+                            <div class="content">
+                                <select name="silindirhacmi" id="silindirhacmi" multiple="multiple" ng-model="search.silindirler">
+                                    <option value="0">1300 cc ve altı</option>
+                                    <option value="1">1301 cc - 1600 cc arası</option>
+                                    <option value="2">1601 cc - 2000 cc arası</option>
+                                    <option value="3">2001 cc ve üzeri</option>
+                                </select>
+                            </div>
+                        </div>
+
+
+                        <div class="data">
+                            <div class="title">Yakıt Türü</div>
+                            <div class="content">
+                                <select name="yakit" id="yakit" multiple="multiple" ng-model="search.yakitlar">
+                                    <option value="1">Benzin</option>
+                                    <option value="2">Dizel</option>
+                                    <option value="3">Hibrid</option>
+                                    <option value="4">LPG</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="data">
+                            <div class="title">Vites Tipi</div>
+                            <div class="content">
+                                <select name="vites" id="vites" multiple="multiple" ng-model="search.vitesler">
+                                    <option value="1">Düz Vites</option>
+                                    <option value="2">Otomatik Vites</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="data">
+                            <div class="title">Markası</div>
+                            <div class="content">
+                                <select name="markalar" id="markalar" multiple="multiple" class="form-control" ng-model="search.brands"></select>
+                            </div>
+                        </div>
+
+                        <div class="data">
+                            <div class="title">Kasa Tipi</div>
+                            <div class="content">
+                                <select name="kasa" id="kasa" ng-model="search.kasaTypes" multiple="multiple">
+                                    <option value="1">Sedan</option>
+                                    <option value="2">Hatchback</option>
+                                    <option value="3">Station Wagon</option>
+                                    <option value="4">SUV-Crossover</option>
+                                    <option value="5">MPV-Minivan</option>
+                                    <option value="6">Panelvan</option>
+                                    <option value="7">Cabrio</option>
+                                    <option value="8">Coupe</option>
+                                    <option value="9">PickUp</option>
+                                    <option value="10">Diğer</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="panel-collapse collapse in" id="thirdAccordion">
+                            <div class="data">
+                                <div class="title">Kilometresi</div>
+                                <div class="content">
+                                    <div class="form-group">
+                                        <div class="col-xs-6"><input type="text" class="form-control" ng-model="search.yolMin" placeholder="En Az" /></div>
+                                        <div class="col-xs-6"><input type="text" class="form-control" ng-model="search.yolMax" placeholder="En Çok" /></div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+                            <div class="data">
+                                <div class="title">Model Yılı</div>
+                                <div class="content">
+                                    <div class="form-group">
+                                        <div class="col-xs-6"><input type="text" class="form-control" ng-model="search.yilMin" placeholder="En Az" /></div>
+                                        <div class="col-xs-6"><input type="text" class="form-control" ng-model="search.yilMax" placeholder="En Çok" /></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="data">
+                                <div class="title">Takas İmkanı</div>
+                                <div class="content">
+                                    <div class="btn-group btn-block" data-toggle="buttons">
+                                        <label ng-click="search.takas=0" ng-class="search.takas == 0 ? 'btn btn-default active': 'btn btn-default'">
+                                            <input type="radio" name="options" id="option1" autocomplete="off" />Tümü
+                                        </label>
+                                        <label ng-click="search.takas=1" ng-class="search.takas == 1 ? 'btn btn-default active': 'btn btn-default'">
+                                            <input type="radio" name="options" id="option2" autocomplete="off" /> Var
+                                        </label>
+                                        <label ng-click="search.takas=2" ng-class="search.takas == 2 ? 'btn btn-default active': 'btn btn-default'">
+                                            <input type="radio" name="options" id="option3" autocomplete="off" /> Yok
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="data">
+                                <div class="title">Şehir</div>
+                                <div class="content">
+                                    <select name="sehir" id="sehir" multiple="multiple" ng-model="search.cities"></select>
+                                </div>
+                            </div>
+
+                            <div class="data">
+                                <div class="title">Boya Durumu</div>
+                                <div class="content">
+                                    <div class="btn-group btn-block" data-toggle="buttons">
+                                        <label ng-click="search.paintType=0" ng-class="search.paintType == 0 ? 'btn btn-default active': 'btn btn-default'">
+                                            <input type="radio" name="options" id="option1" autocomplete="off" />Tümü
+                                        </label>
+                                        <label ng-click="search.paintType=1" ng-class="search.paintType == 1 ? 'btn btn-default active': 'btn btn-default'">
+                                            <input type="radio" name="options" id="option2" autocomplete="off" /> Boyalı
+                                        </label>
+                                        <label ng-click="search.paintType=2" ng-class="search.paintType == 2 ? 'btn btn-default active': 'btn btn-default'">
+                                            <input type="radio" name="options" id="option3" autocomplete="off" /> Boyasız
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="data">
+                                <div class="title">Değişen Parça</div>
+                                <div class="content">
+                                    <div class="btn-group btn-block" data-toggle="buttons">
+                                        <label ng-click="search.changedPart=0" ng-class="search.changedPart == 0 ? 'btn btn-default active': 'btn btn-default'">
+                                            <input type="radio" name="options" id="option1" autocomplete="off" />Tümü
+                                        </label>
+                                        <label ng-click="search.changedPart=1" ng-class="search.changedPart == 1 ? 'btn btn-default active': 'btn btn-default'">
+                                            <input type="radio" name="options" id="option2" autocomplete="off" /> Var
+                                        </label>
+                                        <label ng-click="search.changedPart=2" ng-class="search.changedPart == 2 ? 'btn btn-default active': 'btn btn-default'">
+                                            <input type="radio" name="options" id="option3" autocomplete="off" /> Yok
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="data">
+                                <div class="title">Hasar Durumu</div>
+                                <div class="content">
+                                    <div class="btn-group btn-block" data-toggle="buttons">
+                                        <label ng-click="search.damagedCondition=0" ng-class="search.damagedCondition == 0 ? 'btn btn-default active': 'btn btn-default'">
+                                            <input type="radio" name="options" id="option1" autocomplete="off" />Tümü
+                                        </label>
+                                        <label ng-click="search.damagedCondition=1" ng-class="search.damagedCondition == 1 ? 'btn btn-default active': 'btn btn-default'">
+                                            <input type="radio" name="options" id="option2" autocomplete="off" /> Hasarlı
+                                        </label>
+                                        <label ng-click="search.damagedCondition=2" ng-class="search.damagedCondition == 2 ? 'btn btn-default active': 'btn btn-default'">
+                                            <input type="radio" name="options" id="option3" autocomplete="off" /> Hasarsız
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel-collapse collapse in" id="secondAccordion">
+
+                            <div class="data">
+                                <div class="title">Güvenlik</div>
+                                <div class="content">
+                                    <select name="guvenlik" id="guvenlik" ng-model="search.securities" multiple="multiple">
+                                        <option value="1">Sürücü Hava Yastığı</option>
+                                        <option value="2">Yolcu Hava Yastığı</option>
+                                        <option value="3">Yan/Perde Hava Yastığı</option>
+                                        <option value="4">Diz Hava Yastığı</option>
+                                        <option value="5">Hıza Duyarlı Direksiyon</option>
+                                        <option value="6">Lastik Basınç Kontrol Sistemi</option>
+                                        <option value="7">ABS (Antiblokaj Fren Sistemi)</option>
+                                        <option value="8">EBD (Fren Güç Dağılım Sistemi)</option>
+                                        <option value="9">ESP (Elektronik Denge Sistemi)</option>
+                                        <option value="10">ASR (Çekiş Düzenleme Sistemi)</option>
+                                        <option value="11">Ön Sis Farları</option>
+                                        <option value="12">LED Gündüz Farları</option>
+                                        <option value="13">Alaşım Jantlar</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="data">
+                                <div class="title">Teknoloji</div>
+                                <div class="content">
+                                    <select name="teknoloji" id="teknoloji" ng-model="search.techonologies" multiple="multiple">
+                                        <option value="1">Arka Park Sensörü</option>
+                                        <option value="2">Elektronik Park Freni</option>
+                                        <option value="3">Geri Görüş Kamerası</option>
+                                        <option value="4">Yol Bilgisayarı</option>
+                                        <option value="5">Hız Sabitleme Sistemi</option>
+                                        <option value="6">Yokuş Kalkış Destek Sistemi</option>
+                                        <option value="7">Yağmur Sensörü</option>
+                                        <option value="8">Far Sensörü</option>
+                                        <option value="9">Start Stop Sistemi</option>
+                                        <option value="10">USB Girişi</option>
+                                        <option value="11">Bluetooth Bağlantısı</option>
+                                        <option value="12">Navigasyon Sistemi</option>
+                                        <option value="13">Katlanabilen Yan Aynalar</option>
+                                        <option value="14">Xenon Ön Farlar</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="data">
+                                <div class="title">Konfor</div>
+                                <div class="content">
+                                    <select name="konfor" id="konfor" ng-model="search.comforts" multiple="multiple">
+                                        <option value="3">Soğutmalı Torpido Gözü</option>
+                                        <option value="4">Isıtmalı Sürücü Koltuğu</option>
+                                        <option value="5">Elektrikli Sürücü Koltuk Ayarı</option>
+                                        <option value="6">Deri Döşeme Koltuklar</option>
+                                        <option value="7">Deri Direksiyon Simidi</option>
+                                        <option value="8">Fonksiyonel Direksiyon Simidi</option>
+                                        <option value="9">Yükseklik Ayarlı Direksiyon</option>
+                                        <option value="10">Elektrikli Arka Camlar</option>
+                                        <option value="11">Ön Kol Dayama Ünitesi</option>
+                                        <option value="12">Otomatik Kararan İç Dikiz Aynası</option>
+                                        <option value="13">Anahtarsız Giriş Çalıştırma</option>
+                                        <option value="14">Refakatçi Aydınlatma Sistemi</option>
+                                        <option value="15">Sunroof/Cam Tavan</option>
+                                        <option value="16">Koyu Renk Arka Camlar</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="data">
+                            <div class="title">Sonuçları Sırala</div>
+                            <div class="content">
+                                <select class="form-control" ng-model="search.orderby">
+                                    <option value="0"> Ucuzdan Pahalıya</option>
+                                    <option value="1">Pahalıdan Ucuza</option>
+                                    <option value="2">Yakıt Tüketimine Göre</option>
+                                    <option value="3">Performansına Göre</option>
+                                    <option value="4">Bagaj Hacmine Göre</option>
+                                    <option value="5">Son Eklenenlere Göre</option>
+                                </select>
+                            </div>
+                        </div>
+                    </form>
+                    <div class="data">
+                        <div class="content text-center">
+                            <button type="button" class="btn btn-danger btn-lg" ng-click="searchInAramaSonucu(search.orderby)">TEKRAR ARA</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div><!-- left-side end-->
+
+        <div class="sonuclar">
+            <!-- right-side start-->
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <div class="filtre-icon">
+                        <div class="col-1">
+                            Toplam <strong></strong>934 sonuç bulundu.
+                            <p><strong><a href="#uyari" data-toggle="modal"><i class="fa fa-save"></i> Bu aramayı kaydet</a></strong></p>
+
+                        </div>
+                        <div class="col-4 text-danger" data-toggle="tooltip" title="Ortalama Yakıt Tüketimi"><i class="fa fa-tint fa-3x"></i><br />Ort.Tüketim<a title="" ng-click="searchInAramaSonucu(2)"></a></div>
+                        <div class="col-5 text-danger" data-toggle="tooltip" title="0-100 km/s Hızlanma Süresi"><i class="fa fa-tachometer fa-3x"></i><br />0-100 Hızlanma<a title="" ng-click="searchInAramaSonucu(3)"></a></div>
+                        <div class="col-6 text-danger"><i class="fa fa-turkish-lira fa-3x"></i><br />Liste Fiyatı<a title="" ng-click="searchInAramaSonucu(0)"></a></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <ul class="list-inline">
+                        <li class="cek"><input type="checkbox" ng-click="karsilatirmayaEkle(1,209967);" id="c1209967" /></li>
+                        <li class="resim"><a title="" href="/fiat/fiorino/2018/1-4-pop"><img class="img-rounded" alt="" width="80" height="60" src="/static-res/image/versiyon/80x60/fiat/fiorino/panelvan/2016/2016-fiat-fiorino-panelvan-111.jpg" /></a></li>
+                        <li class="ad"><a title="" href="/fiat/fiorino/2018/1-4-pop">Fiat Fiorino 1.4 Pop</a></li>
+                        <li class="ort">6.9 lt </li>
+                        <li class="hiz">-</li>
+                        <li class="fiyat">53.900 TL</li>
+                    </ul>
+                </div>
+            </div>
+
+
+
+
+
+
+
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <ul class="list-inline">
+                        <li class="cek"><input type="checkbox" ng-click="karsilatirmayaEkle(1,210030);" id="c1210030" /></li>
+                        <li class="resim"><a title="" href="/fiat/fiorino/2018/cargo-1-3-multijet"><img class="img-rounded" alt="" width="80" height="60" src="/static-res/image/versiyon/80x60/fiat/fiorino/cargo/2016/2016-fiat-fiorino-cargo-111.jpg" /></a></li>
+                        <li class="ad"><a title="" href="/fiat/fiorino/2018/cargo-1-3-multijet">Fiat Fiorino Cargo 1.3 Multijet</a></li>
+                        <li class="ort">4.5 lt </li>
+                        <li class="hiz">-</li>
+                        <li class="fiyat">54.400 TL</li>
+                    </ul>
+                </div>
+            </div>
+
+
+
+
+
+
+
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <ul class="list-inline">
+                        <li class="cek"><input type="checkbox" ng-click="karsilatirmayaEkle(1,209968);" id="c1209968" /></li>
+                        <li class="resim"><a title="" href="/fiat/fiorino/2018/1-4-safeline"><img class="img-rounded" alt="" width="80" height="60" src="/static-res/image/versiyon/80x60/fiat/fiorino/panelvan/2016/2016-fiat-fiorino-panelvan-111.jpg" /></a></li>
+                        <li class="ad"><a title="" href="/fiat/fiorino/2018/1-4-safeline">Fiat Fiorino 1.4 Safeline</a></li>
+                        <li class="ort">6.9 lt </li>
+                        <li class="hiz">-</li>
+                        <li class="fiyat">57.900 TL</li>
+                    </ul>
+                </div>
+            </div>
+
+
+
+
+
+
+
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <ul class="list-inline">
+                        <li class="cek"><input type="checkbox" ng-click="karsilatirmayaEkle(1,210031);" id="c1210031" /></li>
+                        <li class="resim"><a title="" href="/fiat/fiorino/2018/cargo-1-3-multijet-plus"><img class="img-rounded" alt="" width="80" height="60" src="/static-res/image/versiyon/80x60/fiat/fiorino/cargo/2016/2016-fiat-fiorino-cargo-111.jpg" /></a></li>
+                        <li class="ad"><a title="" href="/fiat/fiorino/2018/cargo-1-3-multijet-plus">Fiat Fiorino Cargo 1.3 Multijet Plus</a></li>
+                        <li class="ort">4.5 lt </li>
+                        <li class="hiz">-</li>
+                        <li class="fiyat">57.900 TL</li>
+                    </ul>
+                </div>
+            </div>
+
+
+
+
+
+
+
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <ul class="list-inline">
+                        <li class="cek"><input type="checkbox" ng-click="karsilatirmayaEkle(1,209194);" id="c1209194" /></li>
+                        <li class="resim"><a title="" href="/dacia/sandero/2018/1-0-ambiance"><img class="img-rounded" alt="" width="80" height="60" src="/static-res/image/versiyon/80x60/dacia/sandero/baz/2017/2017-dacia-sandero-baz-111.jpg" /></a></li>
+                        <li class="ad"><a title="" href="/dacia/sandero/2018/1-0-ambiance">Dacia Sandero 1.0 Ambiance</a></li>
+                        <li class="ort">5.4 lt </li>
+                        <li class="hiz">14.5 sn</li>
+                        <li class="fiyat">58.400 TL</li>
+                    </ul>
+                </div>
+            </div>
+
+
+
+            <div id="advert">
+                <!-- Desktop 728x90 -->
+                <ins class="adsbygoogle"
+                     style="display:inline-block;width:728px;height:90px"
+                     data-ad-client="ca-pub-3696330473141081"
+                     data-ad-slot="5894227618"></ins>
+                <script>
+                    (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
+            </div>
+
+
+
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <ul class="list-inline">
+                        <li class="cek"><input type="checkbox" ng-click="karsilatirmayaEkle(1,209956);" id="c1209956" /></li>
+                        <li class="resim"><a title="" href="/ford/transit-courier/2018/van-1-5-tdci-trend"><img class="img-rounded" alt="" width="80" height="60" src="/static-res/image/versiyon/80x60/ford/transit-courier/panelvan/2014/2015-ford-transit-courier-panelvan-111.jpg" /></a></li>
+                        <li class="ad"><a title="" href="/ford/transit-courier/2018/van-1-5-tdci-trend">Ford Transit Courier Van 1.5 TDCi Trend</a></li>
+                        <li class="ort">4.1 lt </li>
+                        <li class="hiz">-</li>
+                        <li class="fiyat">59.490 TL</li>
+                    </ul>
+                </div>
+            </div>
+
+
+
+
+
+
+
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <ul class="list-inline">
+                        <li class="cek"><input type="checkbox" ng-click="karsilatirmayaEkle(1,209183);" id="c1209183" /></li>
+                        <li class="resim"><a title="" href="/dacia/dokker/2018/van-1-5-dci-ambiance"><img class="img-rounded" alt="" width="80" height="60" src="/static-res/image/versiyon/80x60/dacia/dokker/van/2013/2013-dacia-dokker-van-111.jpg" /></a></li>
+                        <li class="ad"><a title="" href="/dacia/dokker/2018/van-1-5-dci-ambiance">Dacia Dokker Van 1.5 DCi Ambiance</a></li>
+                        <li class="ort">4.5 lt </li>
+                        <li class="hiz">15.9 sn</li>
+                        <li class="fiyat">60.550 TL</li>
+                    </ul>
+                </div>
+            </div>
+
+
+
+
+
+
+
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <ul class="list-inline">
+                        <li class="cek"><input type="checkbox" ng-click="karsilatirmayaEkle(1,209969);" id="c1209969" /></li>
+                        <li class="resim"><a title="" href="/fiat/fiorino/2018/1-4-premio"><img class="img-rounded" alt="" width="80" height="60" src="/static-res/image/versiyon/80x60/fiat/fiorino/panelvan/2016/2016-fiat-fiorino-panelvan-111.jpg" /></a></li>
+                        <li class="ad"><a title="" href="/fiat/fiorino/2018/1-4-premio">Fiat Fiorino 1.4 Premio</a></li>
+                        <li class="ort">6.9 lt </li>
+                        <li class="hiz">-</li>
+                        <li class="fiyat">61.900 TL</li>
+                    </ul>
+                </div>
+            </div>
+
+
+
+
+
+
+
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <ul class="list-inline">
+                        <li class="cek"><input type="checkbox" ng-click="karsilatirmayaEkle(1,209099);" id="c1209099" /></li>
+                        <li class="resim"><a title="" href="/hyundai/i10/2018/1-0-jump"><img class="img-rounded" alt="" width="80" height="60" src="/static-res/image/versiyon/80x60/hyundai/i10/hb/2016/2016-hyundai-i10-hb-111.jpg" /></a></li>
+                        <li class="ad"><a title="" href="/hyundai/i10/2018/1-0-jump">Hyundai i10 1.0 Jump</a></li>
+                        <li class="ort">4.7 lt </li>
+                        <li class="hiz">14.7 sn</li>
+                        <li class="fiyat">63.600 TL</li>
+                    </ul>
+                </div>
+            </div>
+
+
+
+
+
+
+
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <ul class="list-inline">
+                        <li class="cek"><input type="checkbox" ng-click="karsilatirmayaEkle(1,210081);" id="c1210081" /></li>
+                        <li class="resim"><a title="" href="/fiat/doblo-cargo/2018/1-3-multijet"><img class="img-rounded" alt="" width="80" height="60" src="/static-res/image/versiyon/80x60/fiat/doblo-cargo/panelvan/2014/2014-fiat-doblo-cargo-panelvan-111.jpg" /></a></li>
+                        <li class="ad"><a title="" href="/fiat/doblo-cargo/2018/1-3-multijet">Fiat Doblo Cargo 1.3 Multijet</a></li>
+                        <li class="ort">5.0 lt </li>
+                        <li class="hiz">14.9 sn</li>
+                        <li class="fiyat">64.700 TL</li>
+                    </ul>
+                </div>
+            </div>
+
+
+
+
+
+
+
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <ul class="list-inline">
+                        <li class="cek"><input type="checkbox" ng-click="karsilatirmayaEkle(1,209189);" id="c1209189" /></li>
+                        <li class="resim"><a title="" href="/dacia/logan-mcv/2018/1-0-ambiance"><img class="img-rounded" alt="" width="80" height="60" src="/static-res/image/versiyon/80x60/dacia/logan-mcv/panelvan/2017/2017-dacia-logan-mcv-111.jpg" /></a></li>
+                        <li class="ad"><a title="" href="/dacia/logan-mcv/2018/1-0-ambiance">Dacia Logan MCV 1.0 Ambiance</a></li>
+                        <li class="ort">5.5 lt </li>
+                        <li class="hiz">14.9 sn</li>
+                        <li class="fiyat">65.100 TL</li>
+                    </ul>
+                </div>
+            </div>
+
+
+
+
+
+
+
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <ul class="list-inline">
+                        <li class="cek"><input type="checkbox" ng-click="karsilatirmayaEkle(1,209970);" id="c1209970" /></li>
+                        <li class="resim"><a title="" href="/fiat/fiorino/2018/combi-1-3-multijet-pop"><img class="img-rounded" alt="" width="80" height="60" src="/static-res/image/versiyon/80x60/fiat/fiorino/panelvan/2016/2016-fiat-fiorino-panelvan-111.jpg" /></a></li>
+                        <li class="ad"><a title="" href="/fiat/fiorino/2018/combi-1-3-multijet-pop">Fiat Fiorino Combi 1.3 Multijet Pop</a></li>
+                        <li class="ort">4.3 lt </li>
+                        <li class="hiz">-</li>
+                        <li class="fiyat">65.900 TL</li>
+                    </ul>
+                </div>
+            </div>
+
+
+
+
+
+
+
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <ul class="list-inline">
+                        <li class="cek"><input type="checkbox" ng-click="karsilatirmayaEkle(1,209957);" id="c1209957" /></li>
+                        <li class="resim"><a title="" href="/ford/transit-courier/2018/van-1-5-tdci-deluxe"><img class="img-rounded" alt="" width="80" height="60" src="/static-res/image/versiyon/80x60/ford/transit-courier/panelvan/2014/2015-ford-transit-courier-panelvan-111.jpg" /></a></li>
+                        <li class="ad"><a title="" href="/ford/transit-courier/2018/van-1-5-tdci-deluxe">Ford Transit Courier Van 1.5 TDCi Deluxe</a></li>
+                        <li class="ort">4.1 lt </li>
+                        <li class="hiz">-</li>
+                        <li class="fiyat">66.170 TL</li>
+                    </ul>
+                </div>
+            </div>
+
+
+
+
+
+
+
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <ul class="list-inline">
+                        <li class="cek"><input type="checkbox" ng-click="karsilatirmayaEkle(1,209781);" id="c1209781" /></li>
+                        <li class="resim"><a title="" href="/fiat/panda/2018/1-2-popstar"><img class="img-rounded" alt="" width="80" height="60" src="/static-res/image/versiyon/80x60/fiat/panda/hb/2012/2012-fiat-panda-hb-111.jpg" /></a></li>
+                        <li class="ad"><a title="" href="/fiat/panda/2018/1-2-popstar">Fiat Panda 1.2 Popstar</a></li>
+                        <li class="ort">5.2 lt </li>
+                        <li class="hiz">14.2 sn</li>
+                        <li class="fiyat">66.900 TL</li>
+                    </ul>
+                </div>
+            </div>
+
+
+
+
+
+
+
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <ul class="list-inline">
+                        <li class="cek"><input type="checkbox" ng-click="karsilatirmayaEkle(1,209285);" id="c1209285" /></li>
+                        <li class="resim"><a title="" href="/toyota/yaris/2018/1-0-life"><img class="img-rounded" alt="" width="80" height="60" src="/static-res/image/versiyon/80x60/toyota/yaris/hb/2017/2017-toyota-yaris-hb-111.jpg" /></a></li>
+                        <li class="ad"><a title="" href="/toyota/yaris/2018/1-0-life">Toyota Yaris 1.0 Life</a></li>
+                        <li class="ort">4.7 lt </li>
+                        <li class="hiz">15.3 sn</li>
+                        <li class="fiyat">66.950 TL</li>
+                    </ul>
+                </div>
+            </div>
+
+
+
+            <div id="advert">
+                <!-- Desktop 728x90 -->
+                <ins class="adsbygoogle"
+                     style="display:inline-block;width:728px;height:90px"
+                     data-ad-client="ca-pub-3696330473141081"
+                     data-ad-slot="5894227618"></ins>
+                <script>
+                    (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
+            </div>
+
+
+
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <ul class="list-inline">
+                        <li class="cek"><input type="checkbox" ng-click="karsilatirmayaEkle(1,209527);" id="c1209527" /></li>
+                        <li class="resim"><a title="" href="/skoda/fabia/2018/1-0-ambition"><img class="img-rounded" alt="" width="80" height="60" src="/static-res/image/versiyon/80x60/skoda/fabia/hb/2015/2015-skoda-fabia-hb-111.jpg" /></a></li>
+                        <li class="ad"><a title="" href="/skoda/fabia/2018/1-0-ambition">Skoda Fabia 1.0 Ambition</a></li>
+                        <li class="ort">4.8 lt </li>
+                        <li class="hiz">14.7 sn</li>
+                        <li class="fiyat">67.900 TL</li>
+                    </ul>
+                </div>
+            </div>
+
+
+
+
+
+
+
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <ul class="list-inline">
+                        <li class="cek"><input type="checkbox" ng-click="karsilatirmayaEkle(1,210082);" id="c1210082" /></li>
+                        <li class="resim"><a title="" href="/fiat/doblo-cargo/2018/1-3-multijet-plus"><img class="img-rounded" alt="" width="80" height="60" src="/static-res/image/versiyon/80x60/fiat/doblo-cargo/panelvan/2014/2014-fiat-doblo-cargo-panelvan-111.jpg" /></a></li>
+                        <li class="ad"><a title="" href="/fiat/doblo-cargo/2018/1-3-multijet-plus">Fiat Doblo Cargo 1.3 Multijet Plus</a></li>
+                        <li class="ort">5.0 lt </li>
+                        <li class="hiz">14.9 sn</li>
+                        <li class="fiyat">68.450 TL</li>
+                    </ul>
+                </div>
+            </div>
+
+
+
+
+
+
+
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <ul class="list-inline">
+                        <li class="cek"><input type="checkbox" ng-click="karsilatirmayaEkle(1,209100);" id="c1209100" /></li>
+                        <li class="resim"><a title="" href="/hyundai/i10/2018/1-0-jump-at"><img class="img-rounded" alt="" width="80" height="60" src="/static-res/image/versiyon/80x60/hyundai/i10/hb/2016/2016-hyundai-i10-hb-111.jpg" /></a></li>
+                        <li class="ad"><a title="" href="/hyundai/i10/2018/1-0-jump-at">Hyundai i10 1.0 Jump AT</a></li>
+                        <li class="ort">5.8 lt </li>
+                        <li class="hiz">16.8 sn</li>
+                        <li class="fiyat">68.650 TL</li>
+                    </ul>
+                </div>
+            </div>
+
+
+
+
+
+
+
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <ul class="list-inline">
+                        <li class="cek"><input type="checkbox" ng-click="karsilatirmayaEkle(1,209101);" id="c1209101" /></li>
+                        <li class="resim"><a title="" href="/hyundai/i10/2018/1-0-jump-lpg"><img class="img-rounded" alt="" width="80" height="60" src="/static-res/image/versiyon/80x60/hyundai/i10/hb/2016/2016-hyundai-i10-hb-111.jpg" /></a></li>
+                        <li class="ad"><a title="" href="/hyundai/i10/2018/1-0-jump-lpg">Hyundai i10 1.0 Jump LPG</a></li>
+                        <li class="ort">4.7 lt </li>
+                        <li class="hiz">14.7 sn</li>
+                        <li class="fiyat">68.650 TL</li>
+                    </ul>
+                </div>
+            </div>
+
+
+
+
+
+
+
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <ul class="list-inline">
+                        <li class="cek"><input type="checkbox" ng-click="karsilatirmayaEkle(1,209181);" id="c1209181" /></li>
+                        <li class="resim"><a title="" href="/dacia/dokker/2018/combi-1-5-dci-ambiance"><img class="img-rounded" alt="" width="80" height="60" src="/static-res/image/versiyon/80x60/dacia/dokker/panelvan/2013/2013-dacia-dokker-panelvan-111.jpg" /></a></li>
+                        <li class="ad"><a title="" href="/dacia/dokker/2018/combi-1-5-dci-ambiance">Dacia Dokker Combi 1.5 DCi Ambiance</a></li>
+                        <li class="ort">4.5 lt </li>
+                        <li class="hiz">13.9 sn</li>
+                        <li class="fiyat">68.850 TL</li>
+                    </ul>
+                </div>
+            </div>
+
+
+
+
+
+
+
+            <div id="sorting2">
+                <div class="list-type">
+                    <div class="btn-group">
+                        <button ng-click="compare()" type="button" class="btn btn-danger"><i style="color:#ffffff" class="fa fa-compress"></i> Seçtiklerimi Karşılaştır</button>
+
+                    </div>
+                </div>
+                <div class="pull-right">
+                    <div class="clearfix"></div>
+                    <div>
+                        <ul class="pagination pull-right">
+                            <li class="disabled">
+                                <span><i class="fa fa-fast-backward"></i></span>
+
+                            </li>
+                            <li class="disabled">
+                                <span><i class="fa fa-chevron-left"></i></span>
+
+                            </li>
+                            <li class="active">
+                                <span>1</span>
+
+                            </li>
+                            <li>
+
+                                <a href="/arama-sonucu/-1/-1/-1/-1/-1/-1/0/1/0/2"><span>2</span></a>
+                            </li>
+                            <li>
+
+                                <a href="/arama-sonucu/-1/-1/-1/-1/-1/-1/0/1/0/3"><span>3</span></a>
+                            </li>
+                            <li>
+
+                                <a href="/arama-sonucu/-1/-1/-1/-1/-1/-1/0/1/0/4"><span>4</span></a>
+                            </li>
+                            <li>
+
+                                <a href="/arama-sonucu/-1/-1/-1/-1/-1/-1/0/1/0/5"><span>5</span></a>
+                            </li>
+                            <li>
+
+                                <a title="Sonraki" href="/arama-sonucu/-1/-1/-1/-1/-1/-1/0/1/0/2"><i class="fa fa-chevron-right"></i></a>
+                            </li>
+                            <li>
+
+                                <a href="/arama-sonucu/-1/-1/-1/-1/-1/-1/0/1/0/47"><i class="fa fa-fast-forward"></i></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+
+
+        </div>
+
+        <!-- Model panel staart -->
+
+        <div class="modal fade" id="sehirler" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                        <h4 class="modal-title" id="myModalLabel">Şehir Seçiniz</h4>
+                    </div>
+                    <div class="modal-body">
+                        Şehirler
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Vazgeç</button>
+                        <button type="button" class="btn btn-primary">Gönder</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <form name="saveSearchForm" id="saveSearchForm" action="/searchSave?_csrf=a1d35c86-a4aa-4b6d-a868-2ad3a5216847">
+            <div class="modal fade" id="arama" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                            <h4 class="modal-title" id="myModalLabel">Aramayı Kaydet</h4>
+                        </div>
+                        <div class="modal-body">
+                            <input name="name" ng-model="name" required="required" type="text" class="form-control" placeholder="aramanıza bir isim verin" />
+                            <span class="help-inline" ng-show="(submitted &amp;&amp; saveSearchForm.name.$error.required)">Zorunlu alan</span>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Vazgeç</button>
+                            <button type="button" class="btn btn-primary" ng-click="searchSave(saveSearchForm.$valid)">Kaydet</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <input type="hidden" name="_csrf" value="a1d35c86-a4aa-4b6d-a868-2ad3a5216847" />
+        </form>
+        <script type="text/javascript">
+            $('.btn-group').each(function (index, item) {
+                $(item).find('.btn').css(
+                    'width', 100 / $(item).find('.btn').length + '%'
+                )
+            });
+        </script>
+        <script type="text/javascript">
+            $('#firstAccordion, #secondAccordion, #thirdAccordion').collapse('hide');
+            $('input[name="radios"]').change(function () {
+                if ($('#firstRadio').is(":checked")) {
+                    $('#secondAccordion').collapse('hide');
+                    $('#thirdAccordion').collapse('hide');
+                }
+                if ($('#secondRadio').is(":checked")) {
+                    $('#secondAccordion').collapse('show');
+                    $('#thirdAccordion').collapse('hide');
+                }
+                if ($('#thirdRadio').is(":checked")) {
+                    $('#thirdAccordion').collapse('show');
+                    $('#firstAccordion').collapse('hide');
+                    $('#secondAccordion').collapse('hide');
+                }
+            });
+        </script>
+        <script>
+            $(function () {
+                $('[data-toggle="tooltip"]').tooltip()
+            })
+        </script>
+
+    </div><!-- main end -->
+</main>

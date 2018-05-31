@@ -1,0 +1,60 @@
+﻿@using CheckCar.Models;
+@model List<Mark>
+
+@{
+    ViewBag.Title = "Mark";
+    Layout = "~/Views/Shared/_LayoutHome.cshtml";
+}
+<main class="wrapper">
+    <div id="main">
+        <div class="row-5">
+            <div class="title">
+                <h1>Araba Fiyatları</h1>
+            </div>
+            <div class="login">
+                <div class="btn-group" role="group">
+                    <a rel="nofollow" class="btn btn-danger" href="/uye/uye-ol">Üye Ol</a>
+                    <a rel="nofollow" class="btn btn-danger" href="/uye/uye-girisi">Giriş Yap</a>
+                </div>
+            </div>
+        </div>
+        <div class="clear"></div>
+        <ol class="breadcrumb2">
+            <li><a title="arabalar" href="/">Ana Sayfa</a></li>
+            <li><a title="sıfır araba fiyatları" href="/araba-fiyatlari">Araba Fiyatları</a></li>
+        </ol>
+        <div id="fiyatlar">
+            @foreach (var mark in Model)
+            {
+                <div class="marka">
+                    <div class="logo">
+                        <a href="/Home/MarkVersion/@mark.ID"><img width="140" height="140" alt="@mark.MarkName" src="~/Image/MarkImage/@mark.MarkImage" /></a>
+                    </div>
+                    <div class="name">
+                        <h2><a href="/Home/MarkVersion/@mark.ID" title="Alfa Romeo Fiyat Listesi">@mark.MarkName</a></h2>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+    <div class="clear"></div>
+    <div id="desc">
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <b>Araba fiyatları</b> ülkemizde iç ve dış piyasalar, petrol fiyatları, enflasyon, sektörel üretim ve yatırım gibi kriterlere göre değişkenlik gösterebilmektedir. Üretim maliyeti, lojistik, pazarlama, servis gibi önemli gider kalemleri belirlenen araba fiyatlarını oluşturan temel faktörlerdir. Nihai tüketiciye ulaşan fiyat etiketinde ise özellikle ülkemizde araç üzerindeki vergi yükü en belirleyici etkendir.
+                <br /><br />
+                Sıfır araba fiyatlarının yıl içindeki artış ve azalışlarının görüldüğü fiyat dalgalanmaları birden fazla nedenle açıklanabilir. Bunlardan ilki döviz kurudur. Araç pazarında büyük bir hacme sahip olan ithal modeller doğrudan döviz kurundan etkilenirler. Buna göre döviz kurlarındaki artış veya azalış direk olarak araba fiyatlarına yansırken, kurlarda yaşanan ani değişikliklerde ise üreticiler durağan bir pozisyon alırlar. Bu gibi durumlarda kurun genel bir banda oturması ve dalgalanmanın atlatılması için normalin biraz üzerinde bir satış fiyatı belirlenerek piyasaların stabil hale gelmesi beklenir.
+                <br /><br />
+                Araba fiyatları doğrudan ikinci el piyasasını da etkilemektedir. Buna göre sıfır araba fiyatlarında yaşanan bir artış kısa sürede aynı aracın ikinci el modellerine de yansımaktadır. Sıfır araba fiyatlarındaki artış tüketiciyi ikinci el araç satışına yönelteceği için bu pazarda da bir süreliğine arz fazlalığı yaşanır. Bu durumda ise ikinci el araçlar değerlenir ve fiyatları artar. Özellikle devlet destekli olarak yeni araba fiyatlarında yaşanabilecek alım kolaylığı veya vergi indirimi gibi durumlarda fiyatlar düşer. Sıfır araba fiyatlarının düşmesi ile tüketici önceliğini yeni modellerden yana kullanacağı için ikinci el otomobil pazarına olan talep azalacak ve sonucunda ise ikinci el araba fiyatları ise düşecektir.
+                <br /><br />
+                Bu nedenle sıfır araba fiyatlarının takibi nihai tüketici için olduğu kadar yetkili satıcı ve ikinci  el otomobil satıcıları için de oldukça önemlidir. Ayrıca sigorta şirketleri ve bankalar gibi finansman kuruluşları da sundukları hizmet alanlarında kullanmak üzere fiyat takibi yapmaktadırlar. Araç değerleri özellikle bu sektörler için değer belirleyici bir data oluşturur.
+                <br /><br />
+                Ülkemizde faaliyette olan otomobil üreticileri genelde fiyat listelerini Türk Lirası (TL) cinsinden ve aylık olarak duyurmaktadırlar. Genelde her ayın ilk 2 haftası içinde açıklanan araba fiyatları, liste ve kampanyalı fiyatlar olmak üzere iki ayrı fiyat olarak sunulabilirler. Arabalar.com.tr, en güncel yeni araç fiyatlarını varsa kampanyalı fiyat listesi baz alarak kullanıcılarına sunmaktadır.
+                <br /><br />
+                Tüm fiyatlar, markaların resmi iletişim organlarından günlük kontrol edilerek, aylık periyotlar halinde yayınlanmaktadır. Bulunulan ay içinde tekrar değişen fiyat listesi bulunması halinde, son açıklanan fiyat listesi dikkate alınmaktadır. Türkiye otomotiv piyasasından çekilmiş veya satış işlemlerini sonlandırmış üreticilerin, eski model listelerine ve 2. el satış fiyatlarına da yine bu sayfamızdan ulaşabilirsiniz.
+                <br /><br />
+                <b>Sıfır Araba fiyatları</b> sayfamızdan Alfa Romeo, Aston Martin, Audi, Bentley, BMW, Cadillac, Chery, Chevrolet, Chrysler, Citroen, Dacia, Daewoo, Daihatsu, DFM, Dodge, Ferrari, Fiat, Ford, Geely, Honda, Hyundai, Infiniti, Isuzu, Jaguar, Jeep, Kia, Lada, Lamborghini, Lancia, Land Rover, Lexus, Maserati, Mazda, Mercedes, Mini, Mitsubishi, Nissan, Opel, Peugeot, Porsche, Proton, Renault, Rover, Saab, Seat, Skoda, Smart, SsangYong, Subaru, Suzuki, Tata, Tofaş, Toyota, Volkswagen ve Volvo gibi markaların güncel 0 km ve geçmiş fiyat listesi bilgilerine ulaşabilirsiniz.
+            </div>
+        </div>
+    </div>
+</main>
